@@ -1,0 +1,24 @@
+/* ==============================
+   PÁGINA DE INSCRIÇÃO
+============================== */
+
+.pagina-inscricao {
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    background: #f6f8fb;
+    color: #09294f;
+}
+
+/* ==============================
+   HEADER (botão amarelo nesta página)
+============================== */
+
+.pagina-inscricao .btn-inscricao,
+.pagina-inscricao .btn-inscricao-mobile {
+    background-color: #ffc21a;
+    color: #09294f;
+    font-weight: 700;
+}
+
+.pagina-inscricao .btn-inscricao:hover {
+    background-color: #ffd34d;
+}

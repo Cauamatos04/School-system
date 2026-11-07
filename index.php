@@ -140,32 +140,34 @@
 
         </div>
 
-        <div class="modalidades-grid">
+       <div class="modalidades-grid">
 
-            <div class="modalidade-card">
-                <span class="modalidade-icon">⚽</span>
-                <h3>Futebol</h3>
-            </div>
+    <button type="button" class="modalidade-card" data-modalidade="futebol">
+        <span class="modalidade-icon">⚽</span>
+        <h3>Futebol</h3>
+    </button>
 
-            <div class="modalidade-card">
-                <span class="modalidade-icon">🏐</span>
-                <h3>Vôlei</h3>
-            </div>
+    <button type="button" class="modalidade-card" data-modalidade="volei">
+        <span class="modalidade-icon">🏐</span>
+        <h3>Vôlei</h3>
+    </button>
 
-            <div class="modalidade-card">
-                <span class="modalidade-icon">🤾</span>
-                <h3>Handebol</h3>
-            </div>
+    <button type="button" class="modalidade-card" data-modalidade="handebol">
+        <span class="modalidade-icon">🤾</span>
+        <h3>Handebol</h3>
+    </button>
 
-            <div class="modalidade-card">
-                <span class="modalidade-icon">🏊</span>
-                <h3>Natação</h3>
-            </div>
+    <button type="button" class="modalidade-card" data-modalidade="natacao">
+        <span class="modalidade-icon">🏊</span>
+        <h3>Natação</h3>
+    </button>
 
-            <div class="modalidade-card">
-                <span class="modalidade-icon">🥋</span>
-                <h3>Judô</h3>
-            </div>
+    <button type="button" class="modalidade-card" data-modalidade="judo">
+        <span class="modalidade-icon">🥋</span>
+        <h3>Judô</h3>
+    </button>
+
+</div>
 
         </div>
 
@@ -351,6 +353,166 @@
     </div>
 
 </footer>
+
+<!-- ==============================
+     MODAL DE MODALIDADE
+============================== -->
+
+<!-- Ícones reutilizáveis -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+
+    <symbol id="i-pessoas" viewBox="0 0 48 48">
+        <circle cx="24" cy="14" r="6"/>
+        <circle cx="11" cy="19" r="4"/>
+        <circle cx="37" cy="19" r="4"/>
+        <path d="M12 41v-3a12 12 0 0 1 24 0v3z" fill="#ffc21a"/>
+        <path d="M3 37v-2a8 8 0 0 1 8-8M45 37v-2a8 8 0 0 0-8-8"/>
+    </symbol>
+
+    <symbol id="i-calendario" viewBox="0 0 48 48">
+        <rect x="6" y="9" width="36" height="33" rx="5"/>
+        <path d="M6 19h36M16 5v7M32 5v7"/>
+        <g fill="#ffc21a" stroke="none">
+            <circle cx="15" cy="26" r="2.2"/><circle cx="24" cy="26" r="2.2"/><circle cx="33" cy="26" r="2.2"/>
+            <circle cx="15" cy="34" r="2.2"/><circle cx="24" cy="34" r="2.2"/><circle cx="33" cy="34" r="2.2"/>
+        </g>
+    </symbol>
+
+    <symbol id="i-relogio" viewBox="0 0 48 48">
+        <circle cx="24" cy="24" r="18"/>
+        <path d="M24 12v13l7 5" stroke="#ffc21a"/>
+    </symbol>
+
+    <symbol id="i-nivel" viewBox="0 0 48 48">
+        <rect x="6" y="30" width="9" height="12" rx="2" fill="#ffc21a"/>
+        <rect x="19" y="20" width="9" height="22" rx="2" fill="#ffc21a"/>
+        <rect x="32" y="8" width="9" height="34" rx="2" fill="#ffc21a"/>
+    </symbol>
+
+    <symbol id="i-trofeu" viewBox="0 0 48 48">
+        <path d="M15 6h18v12a9 9 0 0 1-18 0z"/>
+        <path d="M15 10H8v3a7 7 0 0 0 7 7M33 10h7v3a7 7 0 0 1-7 7"/>
+        <path d="M24 27v8M17 42h14M19 35h10v7"/>
+        <path d="M24 10l1.7 3.5 3.8.5-2.8 2.6.7 3.8-3.4-1.8-3.4 1.8.7-3.8-2.8-2.6 3.8-.5z" fill="#ffc21a" stroke="none"/>
+    </symbol>
+
+    <symbol id="i-formatura" viewBox="0 0 48 48">
+        <path d="M3 18l21-10 21 10-21 10z"/>
+        <path d="M12 23v10c0 3 5.5 6 12 6s12-3 12-6V23M42 19v12"/>
+    </symbol>
+
+    <symbol id="i-escudo" viewBox="0 0 48 48">
+        <path d="M24 5l15 6v11c0 10-6.5 17-15 21-8.500-4-15-11-15-21V11z"/>
+        <path d="M17 24l5 5 9-10"/>
+    </symbol>
+
+</svg>
+
+<div class="modal-overlay" id="modal-overlay" aria-hidden="true">
+
+    <div class="modal-card"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="modal-titulo">
+
+        <button type="button" class="modal-fechar" id="modal-fechar" aria-label="Fechar">
+            &times;
+        </button>
+
+        <div class="modal-conteudo">
+
+            <!-- LADO ESQUERDO -->
+            <div class="modal-esquerda">
+
+                <span class="modal-tag">Modalidade</span>
+
+                <h2 class="modal-titulo" id="modal-titulo">Futebol</h2>
+
+                <p class="modal-descricao" id="modal-descricao"></p>
+
+                <hr class="modal-linha">
+
+                <h3 class="modal-info-titulo">Informações da modalidade</h3>
+
+                <div class="modal-info">
+
+                    <div class="modal-info-item">
+                        <svg class="modal-info-icone" aria-hidden="true"><use href="#i-pessoas"/></svg>
+                        <span class="modal-info-label">Faixa etária</span>
+                        <strong id="modal-faixa"></strong>
+                    </div>
+
+                    <div class="modal-info-item">
+                        <svg class="modal-info-icone" aria-hidden="true"><use href="#i-calendario"/></svg>
+                        <span class="modal-info-label">Dias das aulas</span>
+                        <strong id="modal-dias"></strong>
+                    </div>
+
+                    <div class="modal-info-item">
+                        <svg class="modal-info-icone" aria-hidden="true"><use href="#i-relogio"/></svg>
+                        <span class="modal-info-label">Horários</span>
+                        <strong id="modal-horarios"></strong>
+                    </div>
+
+                    <div class="modal-info-item">
+                        <svg class="modal-info-icone" aria-hidden="true"><use href="#i-nivel"/></svg>
+                        <span class="modal-info-label">Nível</span>
+                        <strong id="modal-nivel"></strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- LADO DIREITO -->
+            <div class="modal-direita">
+
+                <div class="modal-destaques">
+
+                    <div class="modal-destaques-topo">
+                        <svg class="modal-destaques-icone" aria-hidden="true"><use href="#i-trofeu"/></svg>
+                        <h3>Destaques</h3>
+                    </div>
+
+                    <span class="modal-destaques-barra"></span>
+
+                    <ul>
+                        <li>
+                            <span class="modal-destaque-icone">
+                                <svg aria-hidden="true"><use href="#i-formatura"/></svg>
+                            </span>
+                            <span>Professores qualificados<br>e experientes</span>
+                        </li>
+
+                        <li>
+                            <span class="modal-destaque-icone">
+                                <svg aria-hidden="true"><use href="#i-escudo"/></svg>
+                            </span>
+                            <span>Ambiente seguro<br>e estruturado</span>
+                        </li>
+
+                        <li>
+                            <span class="modal-destaque-icone">
+                                <svg aria-hidden="true"><use href="#i-pessoas"/></svg>
+                            </span>
+                            <span>Formação esportiva<br>e cidadã</span>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <a href="#" class="modal-btn-inscricao" id="modal-btn-inscricao">
+                    Realizar Inscrição
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4l8 8-8 8"/></svg>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 

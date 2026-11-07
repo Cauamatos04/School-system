@@ -1156,3 +1156,445 @@ a {
     }
 
 }
+
+/* ==============================
+   CARDS CLICÁVEIS (MODALIDADES)
+============================== */
+
+button.modalidade-card {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* ==============================
+   MODAL DE MODALIDADE
+============================== */
+
+body.modal-aberto {
+    overflow: hidden;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+    overflow-y: auto;
+
+    background: rgba(5, 31, 71, 0.65);
+    backdrop-filter: blur(3px);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-card {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+
+    background: #ffffff;
+    border-radius: 34px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.ativo .modal-card {
+    transform: translateY(0) scale(1);
+}
+
+/* Cantos decorativos (azul com borda amarela) */
+
+.modal-card::before,
+.modal-card::after {
+    content: "";
+    position: absolute;
+    background: #0a2a52;
+    z-index: 0;
+}
+
+.modal-card::before {
+    top: 0;
+    left: 0;
+    width: 210px;
+    height: 135px;
+    border-bottom-right-radius: 100% 100%;
+    box-shadow: 7px 7px 0 #ffc21a;
+}
+
+.modal-card::after {
+    right: 0;
+    bottom: 0;
+    width: 190px;
+    height: 105px;
+    border-top-left-radius: 100% 100%;
+    box-shadow: -7px -7px 0 #ffc21a;
+}
+
+/* Botão fechar */
+
+.modal-fechar {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    z-index: 3;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 50%;
+    background: #eef2f7;
+    color: #09294f;
+
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+
+    transition: background 0.3s ease;
+}
+
+.modal-fechar:hover {
+    background: #ffc21a;
+}
+
+/* Layout interno */
+
+.modal-conteudo {
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+    grid-template-columns: 1.75fr 1fr;
+    gap: 36px;
+
+    padding: 48px 48px 48px 52px;
+}
+
+/* ---------- Lado esquerdo ---------- */
+
+.modal-tag {
+    display: inline-block;
+
+    padding: 8px 30px;
+    border-radius: 30px;
+
+    background: #ffc21a;
+    color: #09294f;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.modal-titulo {
+    position: relative;
+    display: inline-block;
+
+    margin: 6px 0 22px;
+    padding-bottom: 16px;
+
+    color: #09294f;
+    font-size: 64px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1;
+}
+
+.modal-titulo::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 72px;
+    height: 5px;
+    border-radius: 5px;
+    background: #ffc21a;
+}
+
+.modal-descricao {
+    color: #1f2d44;
+    font-size: 17px;
+    line-height: 1.55;
+}
+
+.modal-descricao strong {
+    color: #09294f;
+}
+
+.modal-linha {
+    margin: 26px -10px 22px -10px;
+    border: none;
+    border-top: 1px solid #e1e7ef;
+}
+
+.modal-info-titulo {
+    margin-bottom: 14px;
+
+    color: #09294f;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+/* Caixa de informações */
+
+.modal-info {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    background: #f4f6fa;
+    border: 1px solid #e6ebf2;
+    border-radius: 22px;
+}
+
+.modal-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    padding: 18px 16px;
+}
+
+.modal-info-item + .modal-info-item {
+    border-left: 1px solid #dde4ee;
+}
+
+.modal-info-icone {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 6px;
+
+    fill: none;
+    stroke: #09294f;
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.modal-info-label {
+    color: #3d4a5c;
+    font-size: 14px;
+}
+
+.modal-info-item strong {
+    color: #09294f;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+/* ---------- Lado direito ---------- */
+
+.modal-direita {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+
+    padding-left: 34px;
+    border-left: 1px solid #e1e7ef;
+}
+
+.modal-destaques {
+    padding: 26px 26px 18px;
+
+    background: #f4f6fa;
+    border-radius: 28px;
+}
+
+.modal-destaques-topo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.modal-destaques-icone {
+    width: 42px;
+    height: 42px;
+
+    fill: none;
+    stroke: #09294f;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.modal-destaques-topo h3 {
+    color: #09294f;
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.modal-destaques-barra {
+    display: block;
+    position: relative;
+
+    height: 4px;
+    margin: 8px 0 16px 0;
+    border-radius: 4px;
+    background: #dde3ec;
+}
+
+.modal-destaques-barra::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 80px;
+    height: 100%;
+    border-radius: 4px;
+    background: #ffc21a;
+}
+
+.modal-destaques ul {
+    list-style: none;
+}
+
+.modal-destaques li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    padding: 12px 0;
+
+    color: #1f2d44;
+    font-size: 15px;
+    line-height: 1.35;
+}
+
+.modal-destaques li + li {
+    border-top: 1px solid #dde3ec;
+}
+
+.modal-destaque-icone {
+    flex-shrink: 0;
+
+    width: 56px;
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e7ebf2;
+    border-radius: 14px;
+}
+
+.modal-destaque-icone svg {
+    width: 30px;
+    height: 30px;
+
+    fill: none;
+    stroke: #09294f;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Botão de inscrição */
+
+.modal-btn-inscricao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+
+    height: 66px;
+    border-radius: 40px;
+
+    background: #ffc21a;
+    color: #09294f;
+
+    font-size: 23px;
+    font-weight: 800;
+
+    transition: all 0.3s ease;
+}
+
+.modal-btn-inscricao svg {
+    width: 20px;
+    height: 20px;
+
+    fill: none;
+    stroke: #09294f;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.modal-btn-inscricao:hover {
+    background: #ffd34d;
+    transform: translateY(-3px);
+}
+
+/* ==============================
+   RESPONSIVIDADE - MODAL
+============================== */
+
+@media (max-width: 900px) {
+
+    .modal-conteudo {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 55px 30px 35px;
+    }
+
+    .modal-direita {
+        padding-left: 0;
+        border-left: none;
+    }
+
+    .modal-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .modal-info-item:nth-child(3) {
+        border-left: none;
+    }
+
+    .modal-info-item:nth-child(n+3) {
+        border-top: 1px solid #dde4ee;
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    .modal-conteudo {
+        padding: 60px 20px 28px;
+    }
+
+    .modal-card {
+        border-radius: 26px;
+    }
+
+    .modal-titulo {
+        font-size: 48px;
+    }
+
+    .modal-descricao {
+        font-size: 15px;
+    }
+
+    .modal-btn-inscricao {
+        height: 58px;
+        font-size: 19px;
+    }
+
+}
