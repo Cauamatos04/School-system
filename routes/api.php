@@ -1,3 +1,4 @@
+
 <?php
 
 require_once __DIR__ . '/../config/conexao.php';
@@ -13,6 +14,26 @@ $caminho = str_replace('/routes/api.php', '', parse_url($_SERVER['REQUEST_URI'],
 if (in_array($metodo, ['POST', 'PUT', 'DELETE'], true)) {
     require_once __DIR__ . '/../middlewares/autenticacao.php';
 }
+
+// Ícones permitidos no sistema
+$iconesPermitidos = [
+    'futebol',
+    'futsal',
+    'basquete',
+    'volei',
+    'handebol',
+    'natacao',
+    'judo',
+    'karate',
+    'jiu-jitsu',
+    'atletismo',
+    'ciclismo',
+    'tenis',
+    'tenis-mesa',
+    'ginastica',
+    'danca',
+    'outros'
+];
 
 if (preg_match('#^/modalidades/([1-9][0-9]*)$#', $caminho, $matches)) {
     $id = (int) $matches[1];
@@ -66,15 +87,17 @@ try {
                 break;
             }
 
-            $descricao = isset($dados['descricao'])
-                ? trim($dados['descricao'])
-                : null;
+            $descricao = trim((string) ($dados['descricao'] ?? ''));
 
-            if ($descricao === '') {
-                $descricao = null;
+            $icone = $dados['icone'] ?? 'outros';
+
+            if (!is_string($icone) || !in_array($icone, $iconesPermitidos, true)) {
+                http_response_code(400);
+                $resultado = ['erro' => 'Ícone da modalidade inválido'];
+                break;
             }
 
-            if ($controller->cadastrar($nome, $descricao)) {
+            if ($controller->cadastrar($nome, $descricao, $icone)) {
                 http_response_code(201);
                 $resultado = ['mensagem' => 'Modalidade cadastrada com sucesso'];
             } else {
@@ -100,14 +123,6 @@ try {
                 break;
             }
 
-            $descricao = isset($dados['descricao'])
-                ? trim($dados['descricao'])
-                : null;
-
-            if ($descricao === '') {
-                $descricao = null;
-            }
-
             $modalidadeExistente = $controller->buscarPorId($id);
 
             if ($modalidadeExistente === null) {
@@ -116,7 +131,18 @@ try {
                 break;
             }
 
-            if ($controller->editar($id, $nome, $descricao)) {
+            $descricao = trim((string) ($dados['descricao'] ?? ''));
+
+            // Se a requisição antiga não enviar ícone, mantém o atual.
+            $icone = $dados['icone'] ?? ($modalidadeExistente['icone'] ?? 'outros');
+
+            if (!is_string($icone) || !in_array($icone, $iconesPermitidos, true)) {
+                http_response_code(400);
+                $resultado = ['erro' => 'Ícone da modalidade inválido'];
+                break;
+            }
+
+            if ($controller->editar($id, $nome, $descricao, $icone)) {
                 $resultado = ['mensagem' => 'Modalidade atualizada com sucesso'];
             } else {
                 http_response_code(500);
@@ -142,7 +168,9 @@ try {
             }
 
             if ($controller->excluir($id)) {
-                $resultado = ['mensagem' => 'Modalidade excluída com sucesso. As inscrições vinculadas também foram excluídas.'];
+                $resultado = [
+                    'mensagem' => 'Modalidade excluída com sucesso. As inscrições vinculadas também foram excluídas.'
+                ];
             } else {
                 http_response_code(500);
                 $resultado = ['erro' => 'Não foi possível excluir a modalidade'];

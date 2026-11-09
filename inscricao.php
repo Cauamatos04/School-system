@@ -225,125 +225,171 @@
 
             </aside>
 
-            <form class="ins-form" action="#" method="post" id="form-inscricao">
+           
+<form class="ins-form" action="#" method="post" id="form-inscricao">
 
-                <div class="ins-form-topo">
+    <!-- DADOS DO ALUNO -->
+    <div class="ins-form-topo">
 
-                    <span class="ins-icone-caixa grande">
-                        <svg class="ic-cheio" viewBox="0 0 48 48" aria-hidden="true">
-                            <circle cx="24" cy="15" r="8"/>
-                            <path d="M8 42c0-9 7-14 16-14s16 5 16 14z"/>
-                        </svg>
-                    </span>
+        <span class="ins-icone-caixa grande">
+            <svg class="ic-cheio" viewBox="0 0 48 48" aria-hidden="true">
+                <circle cx="24" cy="15" r="8"/>
+                <path d="M8 42c0-9 7-14 16-14s16 5 16 14z"/>
+            </svg>
+        </span>
 
-                    <div>
-                        <h2>Dados do Aluno</h2>
-                        <p>Preencha as informações corretamente.</p>
-                    </div>
+        <div>
+            <h2>Dados do Aluno</h2>
+            <p>Preencha as informações corretamente.</p>
+        </div>
 
-                </div>
+    </div>
 
-                <div class="ins-grid">
+    <div class="ins-grid">
 
-                    <div class="ins-campo">
-                        <label for="matricula">Matrícula *</label>
-                        <input type="text" id="matricula" name="matricula" placeholder="Ex: 2026001" required>
-                    </div>
+        <div class="ins-campo">
+            <label for="matricula">Matrícula *</label>
+            <input
+                type="text"
+                id="matricula"
+                name="matricula"
+                placeholder="Ex: 2026001"
+                required
+            >
+        </div>
 
-                    <div class="ins-campo">
-                        <label for="nome_aluno">Nome do Aluno *</label>
-                        <input type="text" id="nome_aluno" name="nome_aluno" placeholder="Digite o nome completo" required>
-                    </div>
+        <div class="ins-campo">
+            <label for="nome_aluno">Nome do Aluno *</label>
+            <input
+                type="text"
+                id="nome_aluno"
+                name="nome_aluno"
+                placeholder="Digite o nome completo"
+                required
+            >
+        </div>
 
-                    <div class="ins-campo">
-                        <label for="data_nascimento">Data de Nascimento *</label>
-                        <div class="ins-campo-icone">
-                            <input type="date" id="data_nascimento" name="data_nascimento" required>
-                            <svg class="ic-linha ic-direita" viewBox="0 0 48 48" aria-hidden="true">
-                                <rect x="6" y="9" width="36" height="33" rx="5"/>
-                                <path d="M6 19h36M16 5v7M32 5v7"/>
-                                <g fill="currentColor" stroke="none">
-                                    <circle cx="15" cy="26" r="2.2"/>
-                                    <circle cx="24" cy="26" r="2.2"/>
-                                    <circle cx="33" cy="26" r="2.2"/>
-                                    <circle cx="15" cy="34" r="2.2"/>
-                                    <circle cx="24" cy="34" r="2.2"/>
-                                </g>
-                            </svg>
-                        </div>
-                    </div>
+        <div class="ins-campo">
+            <label for="data_nascimento">Data de nascimento *</label>
 
-                    <div class="ins-campo">
-                        <label for="modalidade">Modalidade *</label>
-                        <div class="ins-campo-icone">
-                            <select id="modalidade" name="modalidade" required>
-                                <option value="" selected disabled>Selecione uma modalidade</option>
-                                <option value="futebol">Futebol</option>
-                                <option value="basquete">Basquete</option>
-                                <option value="volei">Vôlei</option>
-                                <option value="handebol">Handebol</option>
-                                <option value="natacao">Natação</option>
-                                <option value="judo">Judô</option>
-                            </select>
-                            <svg class="ic-linha ic-direita ic-seta" viewBox="0 0 48 48" aria-hidden="true">
-                                <path d="M10 17l14 14 14-14" stroke-width="5"/>
-                            </svg>
-                        </div>
-                    </div>
+            <div class="ins-campo-icone">
+                <input
+                    type="text"
+                    id="data_nascimento"
+                    name="data_nascimento"
+                    placeholder="DD/MM/AAAA"
+                    inputmode="numeric"
+                    maxlength="10"
+                    autocomplete="bday"
+                    required
+                >
 
-                </div>
+                <svg class="ic-linha ic-direita" viewBox="0 0 48 48" aria-hidden="true">
+                    <rect x="6" y="9" width="36" height="33" rx="5"/>
+                    <path d="M6 19h36M16 5v7M32 5v7"/>
+                    <g fill="currentColor" stroke="none">
+                        <circle cx="15" cy="26" r="2.2"/>
+                        <circle cx="24" cy="26" r="2.2"/>
+                        <circle cx="33" cy="26" r="2.2"/>
+                        <circle cx="15" cy="34" r="2.2"/>
+                        <circle cx="24" cy="34" r="2.2"/>
+                    </g>
+                </svg>
+            </div>
 
-                <hr class="ins-linha">
+            <small class="ins-ajuda">
+                Digite a data no formato dia/mês/ano.
+            </small>
+        </div>
 
-                <div class="ins-form-topo responsavel">
+        <div class="ins-campo">
+            <label for="modalidade">Modalidade *</label>
 
-                    <span class="ins-icone-caixa">
-                        <svg class="ic-cheio" viewBox="0 0 48 48" aria-hidden="true">
-                            <circle cx="24" cy="14" r="6"/>
-                            <circle cx="10" cy="20" r="4.5"/>
-                            <circle cx="38" cy="20" r="4.5"/>
-                            <path d="M12 41v-2a12 12 0 0 1 24 0v2z"/>
-                            <path d="M1 38v-1a8 8 0 0 1 9-8c1.5 0 3 .4 4 1.2-2 2-3 4.5-3 7.8z"/>
-                            <path d="M47 38v-1a8 8 0 0 0-9-8c-1.5 0-3 .4-4 1.2 2 2 3 4.5 3 7.8z"/>
-                        </svg>
-                    </span>
+            <div class="ins-campo-icone">
+                <select id="modalidade" name="modalidade" required>
+                    <option value="" selected disabled>
+                        Carregando modalidades...
+                    </option>
+                </select>
 
-                    <h2>Dados do Responsável</h2>
+                <svg class="ic-linha ic-direita ic-seta" viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M10 17l14 14 14-14" stroke-width="5"/>
+                </svg>
+            </div>
+        </div>
 
-                </div>
+    </div>
 
-                <div class="ins-grid responsavel-grid">
+    <hr class="ins-linha">
 
-                    <div class="ins-campo">
-                        <label for="nome_responsavel">Nome do Responsável *</label>
-                        <input type="text" id="nome_responsavel" name="nome_responsavel" placeholder="Digite o nome completo" required>
-                    </div>
+    <!-- DADOS DO RESPONSÁVEL -->
+    <div class="ins-form-topo responsavel">
 
-                    <div class="ins-campo">
-                        <label for="telefone">Telefone *</label>
-                        <input type="tel" id="telefone" name="telefone" placeholder="(83) 99999-9999" maxlength="15" required>
-                    </div>
+        <span class="ins-icone-caixa">
+            <svg class="ic-cheio" viewBox="0 0 48 48" aria-hidden="true">
+                <circle cx="24" cy="14" r="6"/>
+                <circle cx="10" cy="20" r="4.5"/>
+                <circle cx="38" cy="20" r="4.5"/>
+                <path d="M12 41v-2a12 12 0 0 1 24 0v2z"/>
+                <path d="M1 38v-1a8 8 0 0 1 9-8c1.5 0 3 .4 4 1.2-2 2-3 4.5-3 7.8z"/>
+                <path d="M47 38v-1a8 8 0 0 0-9-8c-1.5 0-3 .4-4 1.2 2 2 3 4.5 3 7.8z"/>
+            </svg>
+        </span>
 
-                </div>
+        <div>
+            <h2>Dados do Responsável</h2>
+            <p>Informe os dados de contato do responsável pelo aluno.</p>
+        </div>
 
-                <button type="submit" class="ins-btn-enviar">
-                    <svg class="ic-cheio" viewBox="0 0 48 48" aria-hidden="true">
-                        <path d="M45 3L3 20l14 6 6 15z"/>
-                        <path d="M45 3L17 26" stroke="#ffc21a" stroke-width="3"/>
-                    </svg>
-                    Enviar Inscrição
-                </button>
+    </div>
 
-                <p class="ins-seguro">
-                    <svg class="ic-linha" viewBox="0 0 48 48" aria-hidden="true">
-                        <rect x="10" y="21" width="28" height="21" rx="4"/>
-                        <path d="M16 21v-6a8 8 0 0 1 16 0v6"/>
-                        <circle cx="24" cy="31" r="2.5" fill="currentColor" stroke="none"/>
-                    </svg>
-                    Seus dados estão seguros conosco.
-                </p>
+    <div class="ins-grid responsavel-grid">
 
-            </form>
+        <div class="ins-campo">
+            <label for="nome_responsavel">Nome do Responsável *</label>
+            <input
+                type="text"
+                id="nome_responsavel"
+                name="nome_responsavel"
+                placeholder="Digite o nome completo"
+                required
+            >
+        </div>
+
+        <div class="ins-campo">
+            <label for="telefone">Telefone *</label>
+            <input
+                type="tel"
+                id="telefone"
+                name="telefone"
+                placeholder="(83) 99999-9999"
+                maxlength="15"
+                required
+            >
+        </div>
+
+    </div>
+
+    <!-- ENVIO -->
+    <button type="submit" class="ins-btn-enviar">
+        <svg class="ic-cheio" viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M45 3L3 20l14 6 6 15z"/>
+            <path d="M45 3L17 26" stroke="#ffc21a" stroke-width="3"/>
+        </svg>
+        Enviar Inscrição
+    </button>
+
+    <p class="ins-seguro">
+        <svg class="ic-linha" viewBox="0 0 48 48" aria-hidden="true">
+            <rect x="10" y="21" width="28" height="21" rx="4"/>
+            <path d="M16 21v-6a8 8 0 0 1 16 0v6"/>
+            <circle cx="24" cy="31" r="2.5" fill="currentColor" stroke="none"/>
+        </svg>
+        Seus dados estão seguros conosco.
+    </p>
+
+</form>
+
 
         </div>
 

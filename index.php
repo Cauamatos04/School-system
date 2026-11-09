@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Escolinha SECTI</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,300;1,800&display=swap" rel="stylesheet">
@@ -37,17 +36,7 @@
 
                 <a href="#contato" class="nav-link">Contato</a>
 
-                <a href="#inscricao" class="btn-inscricao-mobile">
-                    Inscrever-se <span>›</span>
-                </a>
-
             </nav>
-
-            <!-- BOTÃO DE INSCRIÇÃO -->
-            <a href="#inscricao" class="btn-inscricao">
-                Inscrever-se
-                <span>›</span>
-            </a>
 
             <!-- MENU MOBILE -->
             <button class="menu-toggle"
@@ -106,7 +95,7 @@
                 para um futuro melhor!
             </p>
 
-            <a href="#inscricao" class="hero-button">
+            <a href="#modalidades" class="hero-button">
                 Faça sua inscrição
                 <span>›</span>
             </a>
@@ -128,49 +117,19 @@
 
         <div class="modalidades-header">
 
-            <div class="modalidades-heading">
+            <h2 class="modalidades-titulo">
+                Primeiro, escolha uma <span>modalidade.</span>
+            </h2>
 
-                <span class="section-subtitle">
-                    NOSSAS MODALIDADES
-                </span>
-
-                <h2>Escolha sua modalidade</h2>
-
-            </div>
+            <p class="modalidades-subtitulo">
+                Selecione abaixo a modalidade que deseja participar para continuar.
+            </p>
 
         </div>
 
-       <div class="modalidades-grid">
-
-    <button type="button" class="modalidade-card" data-modalidade="futebol">
-        <span class="modalidade-icon">⚽</span>
-        <h3>Futebol</h3>
-    </button>
-
-    <button type="button" class="modalidade-card" data-modalidade="volei">
-        <span class="modalidade-icon">🏐</span>
-        <h3>Vôlei</h3>
-    </button>
-
-    <button type="button" class="modalidade-card" data-modalidade="handebol">
-        <span class="modalidade-icon">🤾</span>
-        <h3>Handebol</h3>
-    </button>
-
-    <button type="button" class="modalidade-card" data-modalidade="natacao">
-        <span class="modalidade-icon">🏊</span>
-        <h3>Natação</h3>
-    </button>
-
-    <button type="button" class="modalidade-card" data-modalidade="judo">
-        <span class="modalidade-icon">🥋</span>
-        <h3>Judô</h3>
-    </button>
-
+        <div class="modalidades-grid" id="lista-modalidades-publicas">
+    <p>Carregando modalidades...</p>
 </div>
-
-        </div>
-
     </div>
 
 </section>
@@ -265,88 +224,150 @@
 </section>
 
 <!-- ==============================
-     INSCRIÇÃO + RODAPÉ
+     RODAPÉ
 ============================== -->
 
-<footer class="footer">
+<footer class="rodape" id="contato">
 
-    <!-- PARTE SUPERIOR: CHAMADA PARA INSCRIÇÃO -->
-    <div class="footer-cta" id="inscricao">
+    <!-- PARTE PRINCIPAL -->
+    <div class="rodape-principal">
+
+        <!-- Decorações -->
+        <svg class="rodape-bloco" viewBox="0 0 420 190" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+                <linearGradient id="grad-bloco" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#0b2d63"/>
+                    <stop offset="1" stop-color="#071f4a"/>
+                </linearGradient>
+            </defs>
+            <path fill="url(#grad-bloco)" d="M0,0 H420 C405,60 340,98 225,122 C130,142 50,158 0,190 Z"/>
+        </svg>
 
         <img
-            src="assets/images/banner-inscricao.png"
+            src="assets/images/figura-rodape.png"
             alt=""
-            class="footer-cta-image"
+            class="rodape-figura"
+            aria-hidden="true"
         >
 
-        <div class="footer-cta-overlay"></div>
+        <svg class="rodape-onda" viewBox="0 0 385 115" preserveAspectRatio="none" aria-hidden="true">
+            <path fill="#ffc21a" d="M0,115 C150,112 300,80 385,0 L385,50 C320,95 200,115 0,115 Z"/>
+        </svg>
 
-        <div class="footer-cta-container">
+        <!-- Conteúdo -->
+        <div class="rodape-container">
 
-            <div class="footer-cta-title">
-                <h2>
-                    <span class="linha-leve">Inscreva-se na</span>
-                    <span class="linha-forte">Escolinha SECTI</span>
-                </h2>
+            <!-- Marca -->
+            <div class="rodape-marca">
+
+                <a href="#inicio" class="rodape-logo">
+                    <img
+                        src="assets/images/logo-escolinha-secti-branco.png"
+                        alt="Escolinha SECTI"
+                    >
+                </a>
+
+                <p class="rodape-lema">
+                    Incentivando o esporte,<br>
+                    construindo valores.
+                </p>
+
             </div>
 
-            <p class="footer-cta-text">
-                Garanta sua vaga e faça parte do nosso projeto.
-            </p>
+            <span class="rodape-divisor"></span>
 
-            <a href="#inscricao" class="footer-cta-button">
-                Inscrever-se
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M9 4l8 8-8 8"/>
-                </svg>
-            </a>
+            <!-- Acesso rápido -->
+            <nav class="rodape-nav" aria-label="Acesso rápido">
+
+                <h3>Acesso rápido</h3>
+
+                <a href="#inicio">Início</a>
+                <a href="#modalidades">Modalidades</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#contato">Contato</a>
+                <a href="#" class="rodape-admin" data-abrir-login>Administrador</a>
+
+            </nav>
+
+            <span class="rodape-divisor"></span>
+
+            <!-- Instituição -->
+            <div class="rodape-instituicao">
+
+                <h3>
+                    Secretaria de Ciência,<br>
+                    Tecnologia e Inovação
+                </h3>
+
+                <p>Campina Grande – PB</p>
+
+                <div class="rodape-brasao">
+
+                    <img
+                        src="assets/images/brasao-campina-grande.png"
+                        alt="Brasão de Campina Grande"
+                    >
+
+                    <span>Campina<br>Grande</span>
+
+                </div>
+
+            </div>
 
         </div>
 
-        <!-- ONDA AMARELA -->
-        <svg class="footer-wave" viewBox="0 0 1600 60" preserveAspectRatio="none" aria-hidden="true">
-            <path fill="#ffc21a" d="M0,13 C350,40 650,57 900,57 C1200,57 1400,22 1600,4 L1600,60 L0,60 Z"/>
-            <path fill="#051f47" d="M0,50 C400,56 700,58 900,58 C1200,58 1400,56 1600,55 L1600,60 L0,60 Z"/>
-        </svg>
-
     </div>
 
-    <!-- PARTE INFERIOR: RODAPÉ -->
-    <div class="footer-main" id="contato">
+    <!-- BARRA INFERIOR -->
+    <div class="rodape-base">
 
-        <div class="footer-main-container">
+        <div class="rodape-base-container">
 
-            <a href="#inicio" class="footer-logo">
-                <img
-                    src="assets/images/logo-escolinha-secti-branco.png"
-                    alt="Escolinha SECTI"
-                >
-            </a>
-
-            <span class="footer-divider"></span>
-
-            <nav class="footer-nav">
-                <a href="#inicio" class="footer-link">Início</a>
-                <a href="#modalidades" class="footer-link">Modalidades</a>
-                <a href="#sobre" class="footer-link">Sobre</a>
-                <a href="#contato" class="footer-link">Contato</a>
-                <a href="#" class="footer-link footer-link-destaque">Administrador</a>
-            </nav>
-
-            <span class="footer-divider"></span>
-
-            <p class="footer-info">
-                Secretaria de Ciência, Tecnologia e Inovação<br>
-                Campina Grande – PB
+            <p class="rodape-copy">
+                © <?= date("Y") ?> Escolinha SECTI. Todos os direitos reservados.
             </p>
 
-            <span class="footer-divider"></span>
+            <div class="rodape-extra">
 
-            <img
-                src="assets/images/brasao-campina-grande.png"
-                alt="Brasão de Campina Grande"
-                class="footer-brasao"
-            >
+                <span class="rodape-local">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.800 7-13c0-3.900-3.100-7-7-7zm0 9.500A2.500 2.500 0 1 1 12 6.500a2.500 2.500 0 0 1 0 5z"/>
+                    </svg>
+
+                    Campina Grande – PB
+
+                </span>
+
+                <span class="rodape-divisor-curto"></span>
+
+                <div class="rodape-redes">
+
+                    <!-- Troque os # pelos links das redes -->
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="12" cy="12" r="4.200" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="17.300" cy="6.700" r="1.200"/>
+                        </svg>
+                    </a>
+
+                    <a href="#" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M21.600 7.200a2.500 2.500 0 0 0-1.800-1.800C18.200 5 12 5 12 5s-6.200 0-7.800.4A2.500 2.500 0 0 0 2.400 7.200C2 8.800 2 12 2 12s0 3.200.4 4.800a2.500 2.500 0 0 0 1.800 1.800C5.800 19 12 19 12 19s6.200 0 7.800-.4a2.500 2.500 0 0 0 1.800-1.800C22 15.200 22 12 22 12s0-3.200-.4-4.800z"/>
+                            <path d="M10 9.200v5.600l4.800-2.800z" fill="#04183a"/>
+                        </svg>
+                    </a>
+
+                    <a href="#" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M13.500 21v-8h2.700l.4-3.200h-3.100V7.800c0-.9.3-1.500 1.600-1.500h1.700V3.400C16.500 3.300 15.500 3.200 14.400 3.200c-2.400 0-4 1.400-4 4.100v2.500H7.700V13h2.700v8z"/>
+                        </svg>
+                    </a>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -514,8 +535,111 @@
 
 </div>
 
+<!-- ==============================
+     MODAL DE LOGIN (ADMINISTRADOR)
+============================== -->
 
+<div class="login-overlay" id="login-overlay" aria-hidden="true">
 
+    <div class="login-card"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="login-titulo">
+
+        <button type="button" class="login-fechar" id="login-fechar" aria-label="Fechar">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 5l14 14M19 5L5 19"/>
+            </svg>
+        </button>
+
+        <!-- LADO ESQUERDO -->
+        <div class="login-lado">
+
+            <svg class="login-arco" viewBox="0 0 162 138" aria-hidden="true">
+                <path fill="#ffc21a" d="M0,0 C70,22 130,75 162,138 L82,138 C62,108 32,90 0,80 Z"/>
+            </svg>
+
+            <div class="login-lado-conteudo">
+
+                <img
+                    src="assets/images/logo-escolinha-secti-branco.png"
+                    alt="Escolinha SECTI"
+                    class="login-logo"
+                >
+
+                <span class="login-traco"></span>
+
+                <h3>
+                    Acesso restrito<br>
+                    para <span>administradores</span>
+                </h3>
+
+                <p>
+                    Faça login para acessar<br>
+                    o painel administrativo.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- LADO DIREITO -->
+        <div class="login-area">
+
+            <h2 class="login-titulo" id="login-titulo">Bem-vindo de volta!</h2>
+
+            <p class="login-sub">Entre com suas credenciais para continuar.</p>
+
+            <form class="login-form" action="#" method="post" id="form-login">
+
+                <div class="login-campo">
+                    <svg class="login-icone" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="8" r="4.2"/>
+                        <path d="M4 21c0-4.6 3.6-7.5 8-7.5s8 2.9 8 7.5z"/>
+                    </svg>
+                    <input type="text" id="login-usuario" name="usuario" placeholder="Usuário" autocomplete="username" required>
+                </div>
+
+                <div class="login-campo">
+                    <svg class="login-icone" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M7 10V7.5a5 5 0 0 1 10 0V10h.5A1.500 1.500 0 0 1 19 11.500v8a1.500 1.500 0 0 1-1.500 1.500h-11A1.500 1.500 0 0 1 5 19.500v-8A1.500 1.500 0 0 1 6.500 10H7zm2.200 0h5.600V7.500a2.800 2.800 0 0 0-5.600 0V10z"/>
+                    </svg>
+                    <input type="password" id="login-senha" name="senha" placeholder="Senha" autocomplete="current-password" required>
+
+                    <button type="button" class="login-olho" id="login-olho" aria-label="Mostrar senha">
+
+                        <svg class="olho-fechado" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M2 12s3.600-7 10-7 10 7 10 7-3.600 7-10 7S2 12 2 12z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M4 4l16 16"/>
+                        </svg>
+
+                        <svg class="olho-aberto" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M2 12s3.600-7 10-7 10 7 10 7-3.600 7-10 7S2 12 2 12z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+
+                    </button>
+                </div>
+                <p class="login-erro" id="login-erro" role="alert" hidden></p>
+                <button type="submit" class="login-btn">
+                    Entrar
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 12h14M13 6l6 6-6 6"/>
+                    </svg>
+                </button>
+
+            </form>
+
+            <div class="login-marca">
+                <img src="assets/images/logo-secti-curta.png" alt="SECTI">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 
     <script src="assets/js/main.js"></script>

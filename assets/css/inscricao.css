@@ -742,3 +742,148 @@
     }
 
 }
+
+.ins-ajuda {
+    display: block;
+    margin-top: 7px;
+    color: #718096;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* CONFIRMAÇÃO DA INSCRIÇÃO */
+
+/* ==============================
+   ÁREA DO FORMULÁRIO E CONFIRMAÇÃO
+============================== */
+
+.ins-form-area {
+    width: 100%;
+    min-width: 0;
+}
+
+/* ==============================
+   CONFIRMAÇÃO DA INSCRIÇÃO
+============================== */
+
+.ins-confirmacao {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 48px 35px;
+    box-sizing: border-box;
+
+    background: #ffffff;
+    border: 1px solid #edf0f5;
+    border-radius: 22px;
+
+    text-align: center;
+    box-shadow: 0 8px 26px rgba(9, 41, 79, 0.08);
+}
+
+.ins-confirmacao[hidden] {
+    display: none;
+}
+
+.ins-confirmacao-icone {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f1f6f2;
+    border-radius: 50%;
+}
+
+.ins-confirmacao-icone svg {
+    width: 32px;
+    height: 32px;
+
+    fill: none;
+    stroke: #32764c;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.ins-confirmacao-legenda {
+    color: #9a761b;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.ins-confirmacao h2 {
+    margin: 16px 0 12px;
+    color: #09294f;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.ins-confirmacao p {
+    max-width: 420px;
+    margin: 0 auto;
+
+    color: #718096;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.ins-confirmacao-acoes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    width: 100%;
+    max-width: 350px;
+    margin: 30px auto 0;
+}
+
+.ins-confirmacao-acoes button {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 20px;
+
+    border-radius: 6px;
+    cursor: pointer;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+#ins-novo-aluno {
+    border: 1px solid #09294f;
+    background: #09294f;
+    color: #ffffff;
+}
+
+#ins-novo-aluno:hover {
+    background: #123d6c;
+}
+
+#ins-voltar-inicio {
+    border: 1px solid #dce3eb;
+    background: #ffffff;
+    color: #09294f;
+}
+
+#ins-voltar-inicio:hover {
+    background: #f4f7fb;
+}
+
+@media (max-width: 600px) {
+    .ins-confirmacao {
+        padding: 38px 20px;
+    }
+
+    .ins-confirmacao h2 {
+        font-size: 22px;
+    }
+}

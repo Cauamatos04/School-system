@@ -1598,3 +1598,1003 @@ body.modal-aberto {
     }
 
 }
+/* ==============================
+   AJUSTE: MODALIDADES MINIMALISTA
+============================== */
+
+/* Fundo branco com entrada curva sobre o banner */
+
+.modalidades {
+    position: relative;
+    z-index: 3;
+
+    margin-top: -40px;
+    padding: 62px 20px 55px;
+
+    background: #ffffff;
+    border-radius: 50% 50% 0 0 / 40px 40px 0 0;
+}
+
+/* Título centralizado */
+
+.modalidades-header {
+    display: block;
+    margin-bottom: 42px;
+    text-align: center;
+}
+
+.modalidades-titulo {
+    color: #09294f;
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    line-height: 1.2;
+}
+
+.modalidades-titulo::before {
+    content: "";
+    display: block;
+
+    width: 80px;
+    height: 4px;
+    margin: 0 auto 22px;
+
+    background: #ffc21a;
+}
+
+.modalidades-titulo span {
+    color: #f5b900;
+}
+
+.modalidades-subtitulo {
+    margin-top: 8px;
+
+    color: #4a5568;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Modalidades em linha, sem cards */
+
+.modalidades-grid {
+    display: grid;
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: 0;
+
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.modalidade-card {
+    min-height: 165px;
+    padding: 18px 10px;
+    gap: 14px;
+
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Divisórias verticais discretas */
+
+.modalidade-card + .modalidade-card {
+    border-left: 1px solid #dfe5ec;
+}
+
+.modalidade-card:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.modalidade-card:focus-visible {
+    outline: 2px solid #ffc21a;
+    outline-offset: -6px;
+}
+
+/* Ícones originais, só ampliados */
+
+.modalidade-icon {
+    font-size: 56px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.modalidade-icon img,
+.modalidade-icon svg {
+    display: block;
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+
+.modalidade-card:hover .modalidade-icon {
+    transform: scale(1.08);
+}
+
+/* Nome da modalidade */
+
+.modalidade-card h3 {
+    color: #09294f;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+/* Seta amarela abaixo do nome (apague esta regra se não quiser) */
+
+.modalidade-card::after {
+    content: "→";
+
+    color: #ffc21a;
+    font-size: 30px;
+    line-height: 1;
+
+    transition: transform 0.3s ease;
+}
+
+.modalidade-card:hover::after {
+    transform: translateX(6px);
+}
+
+/* ==============================
+   RESPONSIVIDADE - MODALIDADES
+============================== */
+
+@media (max-width: 900px) {
+
+    .modalidades-grid {
+        grid-auto-flow: row;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .modalidade-card:nth-child(3n+1) {
+        border-left: none;
+    }
+
+    .modalidade-card:nth-child(n+4) {
+        border-top: 1px solid #e3e8ef;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .modalidades {
+        margin-top: -30px;
+        padding: 52px 18px 40px;
+        border-radius: 50% 50% 0 0 / 30px 30px 0 0;
+    }
+
+    .modalidades-titulo {
+        font-size: 26px;
+    }
+
+    .modalidades-subtitulo {
+        font-size: 15px;
+    }
+
+    .modalidades-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .modalidade-card {
+        min-height: 140px;
+    }
+
+    .modalidade-card:nth-child(3n+1) {
+        border-left: 1px solid #dfe5ec;
+    }
+
+    .modalidade-card:nth-child(2n+1) {
+        border-left: none;
+    }
+
+    .modalidade-card:nth-child(n+3) {
+        border-top: 1px solid #e3e8ef;
+    }
+
+    .modalidade-icon {
+        font-size: 46px;
+    }
+
+}
+/* ==============================
+   NOVO RODAPÉ
+============================== */
+
+.rodape {
+    --rodape-margem: clamp(20px, 5vw, 70px);
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(ellipse 60% 75% at 72% 0%, rgba(16, 64, 140, 0.55), transparent 70%),
+        linear-gradient(115deg, #031330 0%, #041b40 50%, #06265a 100%);
+
+    color: #ffffff;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+
+/* ---------- Parte principal ---------- */
+
+.rodape-principal {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 380px;
+    padding: 55px 0 60px;
+
+    display: flex;
+    align-items: center;
+}
+
+/* Decorações */
+
+.rodape-bloco {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 27%;
+    height: 40%;
+    display: block;
+}
+.rodape-figura {
+    position: absolute;
+    top: 30px;
+    right: 6px;
+
+    width: clamp(170px, 19vw, 250px);
+    height: auto;
+    display: block;
+
+    opacity: 0.55;
+    pointer-events: none;
+}
+.rodape-onda {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    width: clamp(240px, 25vw, 400px);
+    height: 115px;
+    display: block;
+}
+
+/* Colunas */
+
+.rodape-container {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--rodape-margem);
+
+    display: grid;
+    grid-template-columns: 1.4fr 1px 1fr 1px 1.5fr;
+    align-items: center;
+}
+
+.rodape-divisor {
+    width: 1px;
+    height: 168px;
+    background: rgba(255, 255, 255, 0.28);
+}
+
+/* Marca */
+
+.rodape-marca {
+    padding-right: 50px;
+}
+
+.rodape-logo img {
+    display: block;
+    width: clamp(220px, 22vw, 300px);
+    height: auto;
+}
+
+.rodape-lema {
+    margin-top: 18px;
+    padding-left: 8px;
+
+    color: #b4bdcc;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+/* Acesso rápido */
+
+.rodape-nav {
+    padding: 0 40px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.rodape-nav h3,
+.rodape-instituicao h3 {
+    color: #ffffff;
+    font-size: 14.5px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    line-height: 1.35;
+    text-transform: uppercase;
+}
+
+.rodape-nav h3 {
+    margin-bottom: 14px;
+}
+
+.rodape-nav a {
+    padding: 3px 0;
+
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.4;
+
+    transition: color 0.3s ease;
+}
+
+.rodape-nav a:hover {
+    color: #ffc21a;
+}
+
+.rodape-nav a.rodape-admin {
+    color: #ffc21a;
+    font-weight: 700;
+}
+
+/* Instituição */
+
+.rodape-instituicao {
+    padding-left: 50px;
+}
+
+.rodape-instituicao p {
+    margin-top: 8px;
+
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.rodape-brasao {
+    margin-top: 32px;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.rodape-brasao img {
+    display: block;
+    height: 64px;
+    width: auto;
+}
+
+.rodape-brasao span {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+
+/* ---------- Barra inferior ---------- */
+
+.rodape-base {
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.rodape-base-container {
+    position: relative;
+
+    max-width: 1280px;
+    min-height: 98px;
+    margin: 0 auto;
+    padding: 0 var(--rodape-margem);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Traço amarelo sobre a linha */
+
+.rodape-base-container::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: var(--rodape-margem);
+
+    width: 100px;
+    height: 3px;
+
+    background: #ffc21a;
+}
+
+.rodape-copy {
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.rodape-extra {
+    display: flex;
+    align-items: center;
+}
+
+.rodape-local {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.rodape-local svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+    fill: #ffffff;
+}
+
+.rodape-divisor-curto {
+    width: 2px;
+    height: 32px;
+    margin: 0 26px;
+
+    background: #ffffff;
+}
+
+.rodape-redes {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.rodape-redes a {
+    display: block;
+    color: #ffffff;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.rodape-redes a:hover {
+    color: #ffc21a;
+    transform: translateY(-2px);
+}
+
+.rodape-redes svg {
+    display: block;
+    width: 26px;
+    height: 26px;
+    fill: currentColor;
+}
+
+/* ==============================
+   RESPONSIVIDADE - NOVO RODAPÉ
+============================== */
+
+@media (max-width: 900px) {
+
+    .rodape-principal {
+        padding: 50px 0 55px;
+    }
+
+    .rodape-container {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .rodape-divisor {
+        display: none;
+    }
+
+    .rodape-marca,
+    .rodape-nav,
+    .rodape-instituicao {
+        padding: 0;
+    }
+
+    .rodape-figura {
+        display: none;
+    }
+
+    .rodape-bloco {
+        width: 45%;
+    }
+
+    .rodape-onda {
+        width: 200px;
+        height: 80px;
+    }
+
+    .rodape-base-container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 14px;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    .rodape-extra {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .rodape-divisor-curto {
+        display: none;
+    }
+
+}
+/* ==============================
+   MODAL DE LOGIN (ADMINISTRADOR)
+============================== */
+
+.login-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+    overflow-y: auto;
+
+    background: rgba(20, 32, 56, 0.45);
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.login-overlay.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.login-card {
+    position: relative;
+
+    width: 100%;
+    max-width: 880px;
+    margin: auto;
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: 1fr 1.54fr;
+
+    background: #ffffff;
+    border-radius: 22px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
+
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.3s ease;
+}
+
+.login-overlay.ativo .login-card {
+    transform: translateY(0) scale(1);
+}
+
+/* ---------- Lado esquerdo (azul) ---------- */
+
+.login-lado {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 540px;
+    padding: 40px 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #082a5c;
+    text-align: center;
+}
+
+.login-lado::before,
+.login-lado::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+}
+
+.login-lado::before {
+    top: -90px;
+    right: -218px;
+    width: 280px;
+    height: 280px;
+    background: #0b3068;
+}
+
+.login-lado::after {
+    bottom: -218px;
+    right: -140px;
+    width: 300px;
+    height: 300px;
+    background: #0c3166;
+}
+
+.login-arco {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+
+    width: 150px;
+    height: auto;
+    display: block;
+}
+
+.login-lado-conteudo {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-logo {
+    display: block;
+    width: 215px;
+    height: auto;
+}
+
+.login-traco {
+    display: block;
+    width: 46px;
+    height: 3px;
+    margin: 26px 0 24px;
+
+    background: #ffc21a;
+}
+
+.login-lado h3 {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.login-lado h3 span {
+    color: #ffc21a;
+}
+
+.login-lado p {
+    margin-top: 20px;
+
+    color: #dbe3f0;
+    font-size: 15.5px;
+    line-height: 1.5;
+}
+
+/* ---------- Lado direito (formulário) ---------- */
+
+.login-area {
+    position: relative;
+
+    padding: 60px 52px 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-fechar {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    z-index: 5;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+
+    transition: background 0.3s ease;
+}
+
+.login-fechar:hover {
+    background: #eef2f7;
+}
+
+.login-fechar svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+
+    fill: none;
+    stroke: #09294f;
+    stroke-width: 2.4;
+    stroke-linecap: round;
+}
+
+.login-titulo {
+    color: #09294f;
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.1;
+}
+
+.login-sub {
+    margin: 10px 0 32px;
+
+    color: #3d4a5c;
+    font-size: 17px;
+}
+
+/* Campos */
+
+.login-campo {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.login-campo input {
+    width: 100%;
+    height: 58px;
+    padding: 0 56px 0 58px;
+
+    border: 1.5px solid #d5dce6;
+    border-radius: 16px;
+    background: #ffffff;
+
+    color: #09294f;
+    font-family: inherit;
+    font-size: 17px;
+
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-campo input::placeholder {
+    color: #6b7a90;
+}
+
+.login-campo input:focus {
+    border-color: #ffc21a;
+    box-shadow: 0 0 0 3px rgba(255, 194, 26, 0.25);
+}
+
+.login-icone {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: block;
+    width: 22px;
+    height: 22px;
+
+    fill: #09294f;
+    pointer-events: none;
+}
+
+/* Botão do olho (mostrar/ocultar senha) */
+
+.login-olho {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.login-olho svg {
+    display: block;
+    width: 26px;
+    height: 26px;
+
+    fill: none;
+    stroke: #09294f;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.login-olho .olho-aberto {
+    display: none;
+}
+
+.login-olho.ativo .olho-aberto {
+    display: block;
+}
+
+.login-olho.ativo .olho-fechado {
+    display: none;
+}
+
+/* Botão entrar */
+
+.login-btn {
+    width: 100%;
+    height: 58px;
+    margin-top: 6px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+
+    border: none;
+    border-radius: 16px;
+
+    background: #082a5c;
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.login-btn svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.login-btn:hover {
+    background: #0d3a78;
+    transform: translateY(-2px);
+}
+
+/* Logo pequena com linhas */
+
+.login-marca {
+    margin-top: 30px;
+
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.login-marca::before,
+.login-marca::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #dde3ea;
+}
+
+.login-marca img {
+    display: block;
+    height: 36px;
+    width: auto;
+}
+
+/* ==============================
+   RESPONSIVIDADE - LOGIN
+============================== */
+
+@media (max-width: 760px) {
+
+    .login-card {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+    }
+
+    .login-lado {
+        min-height: 0;
+        padding: 36px 24px 70px;
+    }
+
+    .login-logo {
+        width: 180px;
+    }
+
+    .login-lado h3 {
+        font-size: 22px;
+    }
+
+    .login-lado p {
+        font-size: 14.5px;
+    }
+
+    .login-area {
+        padding: 36px 26px 30px;
+    }
+
+    .login-titulo {
+        font-size: 28px;
+    }
+
+    .login-sub {
+        font-size: 15.5px;
+        margin-bottom: 26px;
+    }
+
+    .login-fechar {
+        top: 12px;
+        right: 12px;
+    }
+
+    .login-fechar:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+}
+.login-erro {
+    margin: -6px 0 14px;
+
+    color: #c0392b;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* CONFIRMAÇÃO DE INSCRIÇÃO */
+
+.confirmacao-inscricao {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 99999;
+    padding: 18px 26px;
+    background: #09294f;
+    color: #ffffff;
+    border-left: 4px solid #ffc21a;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transform: translateY(-12px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.confirmacao-inscricao.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+    .confirmacao-inscricao {
+        top: 15px;
+        right: 15px;
+        left: 15px;
+        text-align: center;
+    }
+}

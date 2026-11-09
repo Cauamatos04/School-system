@@ -25,22 +25,49 @@ if ($caminho === '/inscricoes' ||
     preg_match('#^/\d+$#', $caminho) ||
     preg_match('#^/modalidade/\d+/aprovados$#', $caminho)) {
 
-    if ($metodo === 'GET') {
+if ($metodo === 'GET') {
+
+    // Listar alunos aprovados de uma modalidade específica
+
+    if (preg_match('#^/modalidade/(\d+)/aprovados$#', $caminho, $matches)) {
+
+        $idModalidade = (int) $matches[1];
+
         try {
-            $resultado = $controller->listar();
+            $resultado = $controller->listarAprovadosPorModalidade($idModalidade);
 
             echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
+
         } catch (Throwable $e) {
             http_response_code(500);
 
             echo json_encode(
-                ['erro' => 'Erro ao listar inscrições'],
+                ['erro' => 'Erro ao listar alunos aprovados'],
                 JSON_UNESCAPED_UNICODE
             );
         }
 
         exit;
     }
+
+    // Listar todas as inscrições
+
+    try {
+        $resultado = $controller->listar();
+
+        echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
+
+    } catch (Throwable $e) {
+        http_response_code(500);
+
+        echo json_encode(
+            ['erro' => 'Erro ao listar inscrições'],
+            JSON_UNESCAPED_UNICODE
+        );
+    }
+
+    exit;
+}
 
     if ($metodo === 'POST') {
         $conteudo = file_get_contents('php://input');
@@ -196,28 +223,6 @@ if ($caminho === '/inscricoes' ||
 
             echo json_encode(
                 ['erro' => 'Erro ao aprovar inscrição'],
-                JSON_UNESCAPED_UNICODE
-            );
-        }
-
-        exit;
-    }
-
-
-    if (preg_match('#^/modalidade/(\d+)/aprovados$#', $caminho, $matches) && $metodo === 'GET') {
-
-        $idModalidade = (int) $matches[1];
-
-        try {
-            $resultado = $controller->listarAprovadosPorModalidade($idModalidade);
-
-            echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
-
-        } catch (Throwable $e) {
-            http_response_code(500);
-
-            echo json_encode(
-                ['erro' => 'Erro ao listar alunos aprovados'],
                 JSON_UNESCAPED_UNICODE
             );
         }

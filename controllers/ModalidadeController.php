@@ -1,33 +1,47 @@
+
 <?php
 
 require_once __DIR__ . '/../models/Modalidade.php';
 require_once __DIR__ . '/../config/conexao.php';
 
-class ModalidadeController {
-
+class ModalidadeController
+{
     private Modalidade $modalidade;
 
-    public function __construct(PDO $pdo) {
+    public function __construct(PDO $pdo)
+    {
         $this->modalidade = new Modalidade($pdo);
     }
 
-    public function listar(): array {
+    public function listar(): array
+    {
         return $this->modalidade->listar();
     }
-    public function buscarPorId(int $id): ?array {
+
+    public function buscarPorId(int $id): ?array
+    {
         return $this->modalidade->buscarPorId($id);
     }
 
-    public function cadastrar(string $nome, string $descricao): bool {
-        return $this->modalidade->cadastrar($nome, $descricao);
+    public function cadastrar(
+        string $nome,
+        string $descricao,
+        string $icone = 'outros'
+    ): bool {
+        return $this->modalidade->cadastrar($nome, $descricao, $icone);
     }
 
-    public function editar(int $id, string $nome, string $descricao): bool {
-        return $this->modalidade->editar($id, $nome, $descricao);
+    public function editar(
+        int $id,
+        string $nome,
+        string $descricao,
+        string $icone = 'outros'
+    ): bool {
+        return $this->modalidade->editar($id, $nome, $descricao, $icone);
     }
 
-    public function excluir(int $id): bool {
+    public function excluir(int $id): bool
+    {
         return $this->modalidade->excluir($id);
     }
-
 }
