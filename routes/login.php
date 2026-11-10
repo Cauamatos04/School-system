@@ -59,7 +59,7 @@ try {
         exit;
     }
 
-    session_start();
+    require_once __DIR__ . '/../config/sessao.php';
 
     session_regenerate_id(true);
 

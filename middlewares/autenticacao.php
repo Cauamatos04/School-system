@@ -1,8 +1,6 @@
 <?php
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+require_once __DIR__ . '/../config/sessao.php';
 
 if (!isset($_SESSION['administrador_id'])) {
     http_response_code(401);

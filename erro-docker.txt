@@ -1,0 +1,422 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.vercel
+#1 transferring dockerfile: 435B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/composer:2
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/dunglas/frankenphp:1-php8.5-bookworm
+#3 DONE 0.7s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 68B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 2.21kB done
+#5 DONE 0.0s
+
+#6 [stage-0 1/8] FROM docker.io/dunglas/frankenphp:1-php8.5-bookworm@sha256:8104eb9c834d905e5678a183d053ef1a0c650c5f4874f366dfec7eb025e92e06
+#6 resolve docker.io/dunglas/frankenphp:1-php8.5-bookworm@sha256:8104eb9c834d905e5678a183d053ef1a0c650c5f4874f366dfec7eb025e92e06 0.0s done
+#6 CACHED
+
+#7 FROM docker.io/library/composer:2@sha256:8de2184c6de224f4689e8f80ed5f5edaf0030b6b8b7839a22a2bcb6722ac87d0
+#7 resolve docker.io/library/composer:2@sha256:8de2184c6de224f4689e8f80ed5f5edaf0030b6b8b7839a22a2bcb6722ac87d0 0.0s done
+#7 CACHED
+
+#8 [stage-0 2/8] RUN install-php-extensions pdo_pgsql pgsql
+#8 0.081 install-php-extensions v.2.13.2
+#8 0.081 #StandWithUkraine
+#8 0.942 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#8 1.014 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#8 1.039 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [34.8 kB]
+#8 1.063 Get:4 http://deb.debian.org/debian bookworm/main arm64 Packages [8689 kB]
+#8 1.332 Get:5 http://deb.debian.org/debian bookworm-updates/main arm64 Packages [6936 B]
+#8 1.355 Get:6 http://deb.debian.org/debian-security bookworm-security/main arm64 Packages [364 kB]
+#8 1.846 Fetched 9302 kB in 1s (9607 kB/s)
+#8 1.846 Reading package lists...
+#8 2.892 ### INSTALLING REQUIRED PACKAGES ###
+#8 2.892 # Packages to be kept after installation: libpq5
+#8 2.892 # Packages to be used only for installation: libpq-dev libssl-dev
+#8 3.551 debconf: delaying package configuration, since apt-utils is not installed
+#8 3.563 Selecting previously unselected package libpq5:arm64.
+#8 3.563 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 13327 files and directories currently installed.)
+#8 3.566 Preparing to unpack .../libpq5_15.19-0+deb12u1_arm64.deb ...
+#8 3.567 Unpacking libpq5:arm64 (15.19-0+deb12u1) ...
+#8 3.581 Selecting previously unselected package libssl-dev:arm64.
+#8 3.582 Preparing to unpack .../libssl-dev_3.0.22-1~deb12u2_arm64.deb ...
+#8 3.583 Unpacking libssl-dev:arm64 (3.0.22-1~deb12u2) ...
+#8 3.672 Selecting previously unselected package libpq-dev.
+#8 3.673 Preparing to unpack .../libpq-dev_15.19-0+deb12u1_arm64.deb ...
+#8 3.674 Unpacking libpq-dev (15.19-0+deb12u1) ...
+#8 3.687 Setting up libpq5:arm64 (15.19-0+deb12u1) ...
+#8 3.689 Setting up libssl-dev:arm64 (3.0.22-1~deb12u2) ...
+#8 3.691 Setting up libpq-dev (15.19-0+deb12u1) ...
+#8 3.693 Processing triggers for libc-bin (2.36-9+deb12u14) ...
+#8 3.694 ldconfig: /usr/local/lib/libbrotlidec.so.1 is not a symbolic link
+#8 3.694 
+#8 3.694 ldconfig: /usr/local/lib/libbrotlicommon.so.1 is not a symbolic link
+#8 3.694 
+#8 3.694 ldconfig: /usr/local/lib/libwatcher-c.so.0 is not a symbolic link
+#8 3.694 
+#8 3.694 ldconfig: /usr/local/lib/libbrotlienc.so.1 is not a symbolic link
+#8 3.694 
+#8 3.701 ### INSTALLING BUNDLED MODULE pdo_pgsql ###
+#8 3.718 Configuring for:
+#8 3.718 PHP Version:             8.5
+#8 3.718 PHP Api Version:         20250925
+#8 3.718 Zend Module Api No:      20250925
+#8 3.718 Zend Extension Api No:   420250925
+#8 3.949 checking for grep that handles long lines and -e... /usr/bin/grep
+#8 3.949 checking for egrep... /usr/bin/grep -E
+#8 3.950 checking for a sed that does not truncate output... /usr/bin/sed
+#8 3.959 checking build system type... aarch64-unknown-linux-gnu
+#8 3.961 checking host system type... aarch64-unknown-linux-gnu
+#8 3.961 checking target system type... aarch64-unknown-linux-gnu
+#8 3.970 shtool:echo:Warning: unable to determine terminal sequence for bold mode
+#8 3.982 shtool:echo:Warning: unable to determine terminal sequence for bold mode
+#8 3.986 checking for gawk... no
+#8 3.986 checking for nawk... nawk
+#8 3.986 checking if nawk is broken... no
+#8 3.987 checking for pkg-config... /usr/bin/pkg-config
+#8 3.987 checking pkg-config is at least version 0.9.0... yes
+#8 3.988 checking for cc... cc
+#8 3.995 checking whether the C compiler works... yes
+#8 4.008 checking for C compiler default output file name... a.out
+#8 4.008 checking for suffix of executables... 
+#8 4.021 checking whether we are cross compiling... no
+#8 4.035 checking for suffix of object files... o
+#8 4.042 checking whether the compiler supports GNU C... yes
+#8 4.049 checking whether cc accepts -g... yes
+#8 4.056 checking for cc option to enable C11 features... none needed
+#8 4.074 checking how to run the C preprocessor... cc -E
+#8 4.092 checking for icc... no
+#8 4.095 checking for suncc... no
+#8 4.099 checking for system library directory... lib
+#8 4.099 checking if compiler supports -Wl,-rpath,... yes
+#8 4.117 checking for PHP prefix... /usr/local
+#8 4.117 checking for PHP includes... -I/usr/local/include/php -I/usr/local/include/php/main -I/usr/local/include/php/TSRM -I/usr/local/include/php/Zend -I/usr/local/include/php/ext -I/usr/local/include/php/ext/date/lib
+#8 4.117 checking for PHP extension directory... /usr/local/lib/php/extensions/no-debug-zts-20250925
+#8 4.117 checking for PHP installed headers prefix... /usr/local/include/php
+#8 4.117 checking if debugging is enabled... no
+#8 4.123 checking if PHP is built with thread safety (ZTS)... yes
+#8 4.128 
+#8 4.128 Configuring extension
+#8 4.128 checking for PostgreSQL support for PDO... yes, shared
+#8 4.129 checking for libpq >= 10.0... yes
+#8 4.134 checking for PQencryptPasswordConn in -lpq... yes
+#8 4.160 checking for PQresultMemorySize in -lpq... yes
+#8 4.186 checking for PQclosePrepared in -lpq... no
+#8 4.202 checking for PQclosePortal in -lpq... no
+#8 4.216 checking for PDO includes... /usr/local/include/php/ext
+#8 4.218 
+#8 4.218 Configuring libtool
+#8 4.218 checking for a sed that does not truncate output... /usr/bin/sed
+#8 4.219 checking for ld used by cc... /usr/bin/ld
+#8 4.221 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#8 4.221 checking for /usr/bin/ld option to reload object files... -r
+#8 4.222 checking for BSD-compatible nm... /usr/bin/nm -B
+#8 4.222 checking whether ln -s works... yes
+#8 4.222 checking how to recognize dependent libraries... pass_all
+#8 4.223 checking for stdio.h... yes
+#8 4.230 checking for stdlib.h... yes
+#8 4.238 checking for string.h... yes
+#8 4.246 checking for inttypes.h... yes
+#8 4.254 checking for stdint.h... yes
+#8 4.262 checking for strings.h... yes
+#8 4.270 checking for sys/stat.h... yes
+#8 4.279 checking for sys/types.h... yes
+#8 4.287 checking for unistd.h... yes
+#8 4.296 checking for dlfcn.h... yes
+#8 4.305 checking the maximum length of command line arguments... 1572864
+#8 4.306 checking command to parse /usr/bin/nm -B output from cc object... ok
+#8 4.328 checking for objdir... .libs
+#8 4.330 checking for ar... ar
+#8 4.330 checking for ranlib... ranlib
+#8 4.330 checking for strip... strip
+#8 4.349 checking if cc supports -fno-rtti -fno-exceptions... no
+#8 4.357 checking for cc option to produce PIC... -fPIC
+#8 4.357 checking if cc PIC flag -fPIC works... yes
+#8 4.364 checking if cc static flag -static works... yes
+#8 4.386 checking if cc supports -c -o file.o... yes
+#8 4.395 checking whether the cc linker (/usr/bin/ld) supports shared libraries... yes
+#8 4.399 checking whether -lc should be explicitly linked in... no
+#8 4.408 checking dynamic linker characteristics... GNU/Linux ld.so
+#8 4.412 checking how to hardcode library paths into programs... immediate
+#8 4.412 checking whether stripping libraries is possible... yes
+#8 4.413 checking if libtool supports shared libraries... yes
+#8 4.413 checking whether to build shared libraries... yes
+#8 4.413 checking whether to build static libraries... no
+#8 4.456 
+#8 4.456 creating libtool
+#8 4.461 appending configuration tag "CXX" to libtool
+#8 4.463 
+#8 4.463 Generating files
+#8 4.470 configure: creating build directories
+#8 4.477 configure: creating Makefile
+#8 4.478 configure: patching config.h.in
+#8 4.479 configure: creating ./config.status
+#8 4.493 config.status: creating config.h
+#8 4.505 /bin/bash /usr/src/php/ext/pdo_pgsql/libtool --tag=CC --mode=compile cc -I. -I/usr/src/php/ext/pdo_pgsql -I/usr/local/include/php -I/usr/local/include/php/main -I/usr/local/include/php/TSRM -I/usr/local/include/php/Zend -I/usr/local/include/php/ext -I/usr/local/include/php/ext/date/lib -I/usr/include/postgresql  -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_CONFIG_H  -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE    -DZEND_COMPILE_DL_EXT=1 -c /usr/src/php/ext/pdo_pgsql/pdo_pgsql.c -o pdo_pgsql.lo  -MMD -MF pdo_pgsql.dep -MT pdo_pgsql.lo
+#8 4.505 /bin/bash /usr/src/php/ext/pdo_pgsql/libtool --tag=CC --mode=compile cc -I. -I/usr/src/php/ext/pdo_pgsql -I/usr/local/include/php -I/usr/local/include/php/main -I/usr/local/include/php/TSRM -I/usr/local/include/php/Zend -I/usr/local/include/php/ext -I/usr/local/include/php/ext/date/lib -I/usr/include/postgresql  -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_CONFIG_H  -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE    -DZEND_COMPILE_DL_EXT=1 -c /usr/src/php/ext/pdo_pgsql/pgsql_driver.c -o pgsql_driver.lo  -MMD -MF pgsql_driver.dep -MT pgsql_driver.lo
+#8 4.506 /bin/bash /usr/src/php/ext/pdo_pgsql/libtool --tag=CC --mode=compile cc -I. -I/usr/src/php/ext/pdo_pgsql -I/usr/local/include/php -I/usr/local/include/php/main -I/usr/local/include/php/TSRM -I/usr/local/include/php/Zend -I/usr/local/include/php/ext -I/usr/local/include/php/ext/date/lib -I/usr/include/postgresql  -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_CONFIG_H  -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE    -DZEND_COMPILE_DL_EXT=1 -c /usr/src/php/ext/pdo_pgsql/pgsql_statement.c -o pgsql_statement.lo  -MMD -MF pgsql_statement.dep -MT pgsql_statement.lo
+#8 4.506 /bin/bash /usr/src/php/ext/pdo_pgsql/libtool --tag=CC --mode=compile cc -I. -I/usr/src/php/ext/pdo_pgsql -I/usr/local/include/php -I/usr/local/include/php/main -I/usr/local/include/php/TSRM -I/usr/local/include/php/Zend -I/usr/local/include/php/ext -I/usr/local/include/php/ext/date/lib -I/usr/include/postgresql  -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_CONFIG_H  -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE    -DZEND_COMPILE_DL_EXT=1 -c /usr/src/php/ext/pdo_pgsql/pgsql_sql_parser.c -o pgsql_sql_parser.lo  -MMD -MF pgsql_sql_parser.dep -MT pgsql_sql_parser.lo
+#8 4.542 mkdir .libs
+#8 4.542 mkdir .libs
+#8 4.543 mkdir: cannot create directory '.libs': File exists
+#8 4.543  cc -I. -I/usr/src/php/ext/pdo_pgsql -I/usr/local/include/php -I/usr/local/include/php/main -I/usr/local/include/php/TSRM -I/usr/local/include/php/Zend -I/usr/local/include/php/ext -I/usr/local/include/php/ext/date/lib -I/usr/include/postgresql -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_CONFIG_H -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DZEND_COMPILE_DL_EXT=1 -c /usr/src/php/ext/pdo_pgsql/pdo_pgsql.c -MMD -MF pdo_pgsql.dep -MT pdo_pgsql.lo  -fPIC -DPIC -o .libs/pdo_pgsql.o
+#8 4.544  cc -I. -I/usr/src/php/ext/pdo_pgsql -I/usr/local/include/php -I/usr/local/include/php/main -I/usr/local/include/php/TSRM -I/usr/local/include/php/Zend -I/usr/local/include/php/ext -I/usr/local/include/php/ext/date/lib -I/usr/include/postgresql -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_CONFIG_H -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DZEND_COMPILE_DL_EXT=1 -c /usr/src/php/ext/pdo_pgsql/pgsql_driver.c -MMD -MF pgsql_driver.dep -MT pgsql_driver.lo  -fPIC -DPIC -o .libs/pgsql_driver.o
+#8 4.544  cc -I. -I/usr/src/php/ext/pdo_pgsql -I/usr/local/include/php -I/usr/local/include/php/main -I/usr/local/include/php/TSRM -I/usr/local/include/php/Zend -I/usr/local/include/php/ext -I/usr/local/include/php/ext/date/lib -I/usr/include/postgresql -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_CONFIG_H -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DZEND_COMPILE_DL_EXT=1 -c /usr/src/php/ext/pdo_pgsql/pgsql_sql_parser.c -MMD -MF pgsql_sql_parser.dep -MT pgsql_sql_parser.lo  -fPIC -DPIC -o .libs/pgsql_sql_parser.o
+#8 4.544  cc -I. -I/usr/src/php/ext/pdo_pgsql -I/usr/local/include/php -I/usr/local/include/php/main -I/usr/local/include/php/TSRM -I/usr/local/include/php/Zend -I/usr/local/include/php/ext -I/usr/local/include/php/ext/date/lib -I/usr/include/postgresql -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_CONFIG_H -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DZEND_COMPILE_DL_EXT=1 -c /usr/src/php/ext/pdo_pgsql/pgsql_statement.c -MMD -MF pgsql_statement.dep -MT pgsql_statement.lo  -fPIC -DPIC -o .libs/pgsql_statement.o
+#8 4.853 /bin/bash /usr/src/php/ext/pdo_pgsql/libtool --tag=CC --mode=link cc -shared -I/usr/local/include/php -I/usr/local/include/php/main -I/usr/local/include/php/TSRM -I/usr/local/include/php/Zend -I/usr/local/include/php/ext -I/usr/local/include/php/ext/date/lib -I/usr/include/postgresql  -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_CONFIG_H  -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE  -Wl,-O1 -pie  -o pdo_pgsql.la -export-dynamic -avoid-version -prefer-pic -module -rpath /usr/src/php/ext/pdo_pgsql/modules  pdo_pgsql.lo pgsql_driver.lo pgsql_statement.lo pgsql_sql_parser.lo -lpq
+#8 4.885 cc -shared  .libs/pdo_pgsql.o .libs/pgsql_driver.o .libs/pgsql_statement.o .libs/pgsql_sql_parser.o  -lpq  -Wl,-O1 -Wl,-soname -Wl,pdo_pgsql.so -o .libs/pdo_pgsql.so
+#8 4.892 creating pdo_pgsql.la
+#8 4.894 (cd .libs && rm -f pdo_pgsql.la && ln -s ../pdo_pgsql.la pdo_pgsql.la)
+#8 4.895 /bin/bash /usr/src/php/ext/pdo_pgsql/libtool --tag=CC --mode=install cp ./pdo_pgsql.la /usr/src/php/ext/pdo_pgsql/modules
+#8 4.904 cp ./.libs/pdo_pgsql.so /usr/src/php/ext/pdo_pgsql/modules/pdo_pgsql.so
+#8 4.905 cp ./.libs/pdo_pgsql.lai /usr/src/php/ext/pdo_pgsql/modules/pdo_pgsql.la
+#8 4.912 PATH="$PATH:/sbin" ldconfig -n /usr/src/php/ext/pdo_pgsql/modules
+#8 4.912 ----------------------------------------------------------------------
+#8 4.912 Libraries have been installed in:
+#8 4.912    /usr/src/php/ext/pdo_pgsql/modules
+#8 4.912 
+#8 4.912 If you ever happen to want to link against installed libraries
+#8 4.912 in a given directory, LIBDIR, you must either use libtool, and
+#8 4.912 specify the full pathname of the library, or use the `-LLIBDIR'
+#8 4.912 flag during linking and do at least one of the following:
+#8 4.912    - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+#8 4.912      during execution
+#8 4.912    - add LIBDIR to the `LD_RUN_PATH' environment variable
+#8 4.912      during linking
+#8 4.912    - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+#8 4.912    - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+#8 4.912 
+#8 4.912 See any operating system documentation about shared libraries for
+#8 4.912 more information, such as the ld(1) and ld.so(8) manual pages.
+#8 4.913 ----------------------------------------------------------------------
+#8 4.913 
+#8 4.914 Build complete.
+#8 4.914 Don't forget to run 'make test'.
+#8 4.914 
+#8 4.920 + strip --strip-all modules/pdo_pgsql.so
+#8 4.929 Installing shared extensions:     /usr/local/lib/php/extensions/no-debug-zts-20250925/
+#8 4.957 find . -name \*.gcno -o -name \*.gcda | xargs rm -f
+#8 4.958 find . -name \*.lo -o -name \*.o -o -name \*.dep | xargs rm -f
+#8 4.959 find . -name \*.la -o -name \*.a | xargs rm -f
+#8 4.960 find . -name \*.so | xargs rm -f
+#8 4.961 find . -name .libs -a -type d|xargs rm -rf
+#8 4.962 rm -f libphp.la        modules/* libs/*
+#8 4.963 rm -f ext/opcache/jit/ir/gen_ir_fold_hash
+#8 4.963 rm -f ext/opcache/jit/ir/minilua
+#8 4.963 rm -f ext/opcache/jit/ir/ir_fold_hash.h
+#8 4.964 rm -f ext/opcache/jit/ir/ir_emit_x86.h
+#8 4.964 rm -f ext/opcache/jit/ir/ir_emit_aarch64.h
+#8 4.976 ### INSTALLING BUNDLED MODULE pgsql ###
+#8 4.993 Configuring for:
+#8 4.993 PHP Version:             8.5
+#8 4.993 PHP Api Version:         20250925
+#8 4.993 Zend Module Api No:      20250925
+#8 4.993 Zend Extension Api No:   420250925
+#8 5.230 checking for grep that handles long lines and -e... /usr/bin/grep
+#8 5.231 checking for egrep... /usr/bin/grep -E
+#8 5.231 checking for a sed that does not truncate output... /usr/bin/sed
+#8 5.240 checking build system type... aarch64-unknown-linux-gnu
+#8 5.242 checking host system type... aarch64-unknown-linux-gnu
+#8 5.242 checking target system type... aarch64-unknown-linux-gnu
+#8 5.251 shtool:echo:Warning: unable to determine terminal sequence for bold mode
+#8 5.264 shtool:echo:Warning: unable to determine terminal sequence for bold mode
+#8 5.267 checking for gawk... no
+#8 5.267 checking for nawk... nawk
+#8 5.267 checking if nawk is broken... no
+#8 5.268 checking for pkg-config... /usr/bin/pkg-config
+#8 5.268 checking pkg-config is at least version 0.9.0... yes
+#8 5.269 checking for cc... cc
+#8 5.276 checking whether the C compiler works... yes
+#8 5.289 checking for C compiler default output file name... a.out
+#8 5.289 checking for suffix of executables... 
+#8 5.302 checking whether we are cross compiling... no
+#8 5.317 checking for suffix of object files... o
+#8 5.325 checking whether the compiler supports GNU C... yes
+#8 5.332 checking whether cc accepts -g... yes
+#8 5.338 checking for cc option to enable C11 features... none needed
+#8 5.357 checking how to run the C preprocessor... cc -E
+#8 5.375 checking for icc... no
+#8 5.378 checking for suncc... no
+#8 5.382 checking for system library directory... lib
+#8 5.382 checking if compiler supports -Wl,-rpath,... yes
+#8 5.400 checking for PHP prefix... /usr/local
+#8 5.400 checking for PHP includes... -I/usr/local/include/php -I/usr/local/include/php/main -I/usr/local/include/php/TSRM -I/usr/local/include/php/Zend -I/usr/local/include/php/ext -I/usr/local/include/php/ext/date/lib
+#8 5.400 checking for PHP extension directory... /usr/local/lib/php/extensions/no-debug-zts-20250925
+#8 5.400 checking for PHP installed headers prefix... /usr/local/include/php
+#8 5.400 checking if debugging is enabled... no
+#8 5.406 checking if PHP is built with thread safety (ZTS)... yes
+#8 5.411 
+#8 5.411 Configuring extension
+#8 5.411 checking for PostgreSQL support... yes, shared
+#8 5.412 checking for libpq >= 10.0... yes
+#8 5.417 checking for PQencryptPasswordConn in -lpq... yes
+#8 5.443 checking for PQresultMemorySize in -lpq... yes
+#8 5.469 checking for PQchangePassword in -lpq... no
+#8 5.485 checking for PQsocketPoll in -lpq... no
+#8 5.500 checking for PQclosePrepared in -lpq... no
+#8 5.515 checking for cc options needed to detect all undeclared functions... none needed
+#8 5.528 checking whether PGRES_TUPLES_CHUNK is declared... no
+#8 5.536 checking if PGVerbosity enum has PQERRORS_SQLSTATE... yes
+#8 5.546 
+#8 5.546 Configuring libtool
+#8 5.546 checking for a sed that does not truncate output... /usr/bin/sed
+#8 5.547 checking for ld used by cc... /usr/bin/ld
+#8 5.549 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#8 5.550 checking for /usr/bin/ld option to reload object files... -r
+#8 5.550 checking for BSD-compatible nm... /usr/bin/nm -B
+#8 5.550 checking whether ln -s works... yes
+#8 5.550 checking how to recognize dependent libraries... pass_all
+#8 5.551 checking for stdio.h... yes
+#8 5.557 checking for stdlib.h... yes
+#8 5.565 checking for string.h... yes
+#8 5.573 checking for inttypes.h... yes
+#8 5.581 checking for stdint.h... yes
+#8 5.590 checking for strings.h... yes
+#8 5.598 checking for sys/stat.h... yes
+#8 5.606 checking for sys/types.h... yes
+#8 5.614 checking for unistd.h... yes
+#8 5.623 checking for dlfcn.h... yes
+#8 5.632 checking the maximum length of command line arguments... 1572864
+#8 5.634 checking command to parse /usr/bin/nm -B output from cc object... ok
+#8 5.656 checking for objdir... .libs
+#8 5.657 checking for ar... ar
+#8 5.657 checking for ranlib... ranlib
+#8 5.657 checking for strip... strip
+#8 5.675 checking if cc supports -fno-rtti -fno-exceptions... no
+#8 5.683 checking for cc option to produce PIC... -fPIC
+#8 5.683 checking if cc PIC flag -fPIC works... yes
+#8 5.689 checking if cc static flag -static works... yes
+#8 5.711 checking if cc supports -c -o file.o... yes
+#8 5.720 checking whether the cc linker (/usr/bin/ld) supports shared libraries... yes
+#8 5.724 checking whether -lc should be explicitly linked in... no
+#8 5.732 checking dynamic linker characteristics... GNU/Linux ld.so
+#8 5.737 checking how to hardcode library paths into programs... immediate
+#8 5.737 checking whether stripping libraries is possible... yes
+#8 5.738 checking if libtool supports shared libraries... yes
+#8 5.738 checking whether to build shared libraries... yes
+#8 5.738 checking whether to build static libraries... no
+#8 5.780 
+#8 5.780 creating libtool
+#8 5.786 appending configuration tag "CXX" to libtool
+#8 5.788 
+#8 5.788 Generating files
+#8 5.795 configure: creating build directories
+#8 5.802 configure: creating Makefile
+#8 5.803 configure: patching config.h.in
+#8 5.804 configure: creating ./config.status
+#8 5.818 config.status: creating config.h
+#8 5.829 /bin/bash /usr/src/php/ext/pgsql/libtool --tag=CC --mode=compile cc -I. -I/usr/src/php/ext/pgsql -I/usr/local/include/php -I/usr/local/include/php/main -I/usr/local/include/php/TSRM -I/usr/local/include/php/Zend -I/usr/local/include/php/ext -I/usr/local/include/php/ext/date/lib -I/usr/include/postgresql  -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_CONFIG_H  -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE   -DZEND_ENABLE_STATIC_TSRMLS_CACHE=1 -DZEND_COMPILE_DL_EXT=1 -c /usr/src/php/ext/pgsql/pgsql.c -o pgsql.lo  -MMD -MF pgsql.dep -MT pgsql.lo
+#8 5.857 mkdir .libs
+#8 5.858  cc -I. -I/usr/src/php/ext/pgsql -I/usr/local/include/php -I/usr/local/include/php/main -I/usr/local/include/php/TSRM -I/usr/local/include/php/Zend -I/usr/local/include/php/ext -I/usr/local/include/php/ext/date/lib -I/usr/include/postgresql -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_CONFIG_H -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DZEND_ENABLE_STATIC_TSRMLS_CACHE=1 -DZEND_COMPILE_DL_EXT=1 -c /usr/src/php/ext/pgsql/pgsql.c -MMD -MF pgsql.dep -MT pgsql.lo  -fPIC -DPIC -o .libs/pgsql.o
+#8 7.105 /bin/bash /usr/src/php/ext/pgsql/libtool --tag=CC --mode=link cc -shared -I/usr/local/include/php -I/usr/local/include/php/main -I/usr/local/include/php/TSRM -I/usr/local/include/php/Zend -I/usr/local/include/php/ext -I/usr/local/include/php/ext/date/lib -I/usr/include/postgresql  -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_CONFIG_H  -fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE  -Wl,-O1 -pie  -o pgsql.la -export-dynamic -avoid-version -prefer-pic -module -rpath /usr/src/php/ext/pgsql/modules  pgsql.lo -lpq
+#8 7.134 cc -shared  .libs/pgsql.o  -lpq  -Wl,-O1 -Wl,-soname -Wl,pgsql.so -o .libs/pgsql.so
+#8 7.141 creating pgsql.la
+#8 7.143 (cd .libs && rm -f pgsql.la && ln -s ../pgsql.la pgsql.la)
+#8 7.144 /bin/bash /usr/src/php/ext/pgsql/libtool --tag=CC --mode=install cp ./pgsql.la /usr/src/php/ext/pgsql/modules
+#8 7.152 cp ./.libs/pgsql.so /usr/src/php/ext/pgsql/modules/pgsql.so
+#8 7.153 cp ./.libs/pgsql.lai /usr/src/php/ext/pgsql/modules/pgsql.la
+#8 7.160 PATH="$PATH:/sbin" ldconfig -n /usr/src/php/ext/pgsql/modules
+#8 7.161 ----------------------------------------------------------------------
+#8 7.161 Libraries have been installed in:
+#8 7.161    /usr/src/php/ext/pgsql/modules
+#8 7.161 
+#8 7.161 If you ever happen to want to link against installed libraries
+#8 7.161 in a given directory, LIBDIR, you must either use libtool, and
+#8 7.161 specify the full pathname of the library, or use the `-LLIBDIR'
+#8 7.161 flag during linking and do at least one of the following:
+#8 7.161    - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+#8 7.161      during execution
+#8 7.161    - add LIBDIR to the `LD_RUN_PATH' environment variable
+#8 7.161      during linking
+#8 7.161    - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+#8 7.161    - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+#8 7.161 
+#8 7.161 See any operating system documentation about shared libraries for
+#8 7.161 more information, such as the ld(1) and ld.so(8) manual pages.
+#8 7.161 ----------------------------------------------------------------------
+#8 7.162 
+#8 7.162 Build complete.
+#8 7.162 Don't forget to run 'make test'.
+#8 7.163 
+#8 7.168 + strip --strip-all modules/pgsql.so
+#8 7.177 Installing shared extensions:     /usr/local/lib/php/extensions/no-debug-zts-20250925/
+#8 7.199 find . -name \*.gcno -o -name \*.gcda | xargs rm -f
+#8 7.200 find . -name \*.lo -o -name \*.o -o -name \*.dep | xargs rm -f
+#8 7.201 find . -name \*.la -o -name \*.a | xargs rm -f
+#8 7.202 find . -name \*.so | xargs rm -f
+#8 7.203 find . -name .libs -a -type d|xargs rm -rf
+#8 7.204 rm -f libphp.la        modules/* libs/*
+#8 7.205 rm -f ext/opcache/jit/ir/gen_ir_fold_hash
+#8 7.205 rm -f ext/opcache/jit/ir/minilua
+#8 7.206 rm -f ext/opcache/jit/ir/ir_fold_hash.h
+#8 7.206 rm -f ext/opcache/jit/ir/ir_emit_x86.h
+#8 7.207 rm -f ext/opcache/jit/ir/ir_emit_aarch64.h
+#8 7.218 ### REMOVING UNNEEDED PACKAGES ###
+#8 7.220 Reading package lists...
+#8 7.423 Building dependency tree...
+#8 7.475 Reading state information...
+#8 7.538 The following packages will be REMOVED:
+#8 7.538   libpq-dev* libssl-dev*
+#8 7.589 0 upgraded, 0 newly installed, 2 to remove and 0 not upgraded.
+#8 7.589 After this operation, 13.3 MB disk space will be freed.
+#8 7.591 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 13522 files and directories currently installed.)
+#8 7.594 Removing libpq-dev (15.19-0+deb12u1) ...
+#8 7.600 Removing libssl-dev:arm64 (3.0.22-1~deb12u2) ...
+#8 7.614 ### RESTORING PREVIOUSLY INSTALLED PACKAGES ###
+#8 DONE 8.0s
+
+#9 [stage-0 3/8] WORKDIR /app
+#9 DONE 0.0s
+
+#10 [stage-0 4/8] COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+#10 DONE 0.0s
+
+#11 [stage-0 5/8] COPY composer.json composer.lock ./
+#11 DONE 0.0s
+
+#12 [stage-0 6/8] RUN composer install --no-dev --optimize-autoloader --no-interaction
+#12 0.147 Installing dependencies from lock file
+#12 0.147 Verifying lock file contents can be installed on current platform.
+#12 0.452 Package operations: 6 installs, 0 updates, 0 removals
+#12 0.458     Failed to download symfony/polyfill-php80 from dist: The zip extension and unzip/7z commands are both missing, skipping.
+#12 0.458 Your command-line PHP is using multiple ini files. Run `php --ini` to show them.
+#12 0.459 
+#12 0.462 In ZipDownloader.php line 81:
+#12 0.462                                                                                
+#12 0.462   The zip extension and unzip/7z commands are both missing, skipping.          
+#12 0.462   Your command-line PHP is using multiple ini files. Run `php --ini` to show   
+#12 0.462   them.                                                                        
+#12 0.462                                                                                
+#12 0.462 
+#12 0.462 install [--prefer-source] [--prefer-dist] [--prefer-install PREFER-INSTALL] [--dry-run] [--download-only] [--dev] [--no-suggest] [--no-dev] [--no-security-blocking] [--no-blocking] [--no-autoloader] [--no-progress] [--no-install] [--audit] [--audit-format AUDIT-FORMAT] [-v|vv|vvv|--verbose] [-o|--optimize-autoloader] [-a|--classmap-authoritative] [--strict-psr-autoloader] [--apcu-autoloader] [--apcu-autoloader-prefix APCU-AUTOLOADER-PREFIX] [--ignore-platform-req IGNORE-PLATFORM-REQ] [--ignore-platform-reqs] [--] [<packages>...]
+#12 0.462 
+#12 ERROR: process "/bin/sh -c composer install --no-dev --optimize-autoloader --no-interaction" did not complete successfully: exit code: 1
+------
+ > [stage-0 6/8] RUN composer install --no-dev --optimize-autoloader --no-interaction:
+0.459 
+0.462 In ZipDownloader.php line 81:
+0.462                                                                                
+0.462   The zip extension and unzip/7z commands are both missing, skipping.          
+0.462   Your command-line PHP is using multiple ini files. Run `php --ini` to show   
+0.462   them.                                                                        
+0.462                                                                                
+0.462 
+0.462 install [--prefer-source] [--prefer-dist] [--prefer-install PREFER-INSTALL] [--dry-run] [--download-only] [--dev] [--no-suggest] [--no-dev] [--no-security-blocking] [--no-blocking] [--no-autoloader] [--no-progress] [--no-install] [--audit] [--audit-format AUDIT-FORMAT] [-v|vv|vvv|--verbose] [-o|--optimize-autoloader] [-a|--classmap-authoritative] [--strict-psr-autoloader] [--apcu-autoloader] [--apcu-autoloader-prefix APCU-AUTOLOADER-PREFIX] [--ignore-platform-req IGNORE-PLATFORM-REQ] [--ignore-platform-reqs] [--] [<packages>...]
+0.462 
+------
+Dockerfile.vercel:12
+--------------------
+  10 |     COPY composer.json composer.lock ./
+  11 |     
+  12 | >>> RUN composer install --no-dev --optimize-autoloader --no-interaction
+  13 |     
+  14 |     COPY . .
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c composer install --no-dev --optimize-autoloader --no-interaction" did not complete successfully: exit code: 1

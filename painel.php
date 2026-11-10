@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once __DIR__ . '/config/sessao.php';
 
 // Só entra quem estiver logado como administrador
 if (!isset($_SESSION['administrador_id'])) {
