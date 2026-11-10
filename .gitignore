@@ -1,2 +1,5 @@
 .env
-vendor/
+.env.*
+!.env.example
+/vendor/
+.DS_Store
