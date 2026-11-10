@@ -189,13 +189,13 @@ try {
 
 } catch (PDOException $e) {
 
-    if ($e->getCode() === '23000') {
-        http_response_code(409);
-        $resultado = ['erro' => 'Já existe uma modalidade com esse nome'];
-    } else {
-        http_response_code(500);
-        $resultado = ['erro' => 'Erro interno ao acessar o banco de dados'];
-    }
+   if ($e->getCode() === '23505') {
+    http_response_code(409);
+    $resultado = ['erro' => 'Já existe uma modalidade com esse nome'];
+} else {
+    http_response_code(500);
+    $resultado = ['erro' => 'Erro interno ao acessar o banco de dados'];
+}
 
 } catch (Throwable $e) {
 

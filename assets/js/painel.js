@@ -108,6 +108,11 @@ async function carregarModalidades() {
         });
 
         const modalidades = await resposta.json();
+        const totalModalidadesDashboard = document.getElementById('total-modalidades-dashboard');
+
+if (totalModalidadesDashboard) {
+    totalModalidadesDashboard.textContent = modalidades.length;
+}
 
         if (!resposta.ok || !Array.isArray(modalidades)) {
             throw new Error("Não foi possível carregar as modalidades.");
@@ -669,6 +674,24 @@ async function carregarInscricoes() {
         });
 
         const inscricoes = await resposta.json();
+        const totalInscricoesDashboard = document.getElementById('total-inscricoes-dashboard');
+const totalAprovadasDashboard = document.getElementById('total-aprovadas-dashboard');
+const totalPendentesDashboard = document.getElementById('total-pendentes-dashboard');
+
+const aprovadas = inscricoes.filter(inscricao => inscricao.status === 'aprovada').length;
+const pendentes = inscricoes.filter(inscricao => inscricao.status === 'pendente').length;
+
+if (totalInscricoesDashboard) {
+    totalInscricoesDashboard.textContent = inscricoes.length;
+}
+
+if (totalAprovadasDashboard) {
+    totalAprovadasDashboard.textContent = aprovadas;
+}
+
+if (totalPendentesDashboard) {
+    totalPendentesDashboard.textContent = pendentes;
+}
 
         if (!resposta.ok || !Array.isArray(inscricoes)) {
             throw new Error(

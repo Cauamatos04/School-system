@@ -137,8 +137,8 @@ if (!isset($_SESSION['administrador_id'])) {
         </div>
 
         <div class="estatistica-info">
-            <strong>5</strong>
-            <span>Modalidades Ativas</span>
+            <strong id="total-modalidades-dashboard">0</strong>
+            <span>Modalidades cadastradas</span>
         </div>
 
     </article>
@@ -155,7 +155,7 @@ if (!isset($_SESSION['administrador_id'])) {
         </div>
 
         <div class="estatistica-info">
-            <strong>247</strong>
+            <strong id="total-inscricoes-dashboard">0</strong>
             <span>Inscrições Totais</span>
         </div>
 
@@ -172,7 +172,7 @@ if (!isset($_SESSION['administrador_id'])) {
         </div>
 
         <div class="estatistica-info">
-            <strong>198</strong>
+            <strong id="total-aprovadas-dashboard">0</strong>
             <span>Inscrições Aprovadas</span>
         </div>
 
@@ -189,7 +189,7 @@ if (!isset($_SESSION['administrador_id'])) {
         </div>
 
         <div class="estatistica-info">
-            <strong>49</strong>
+            <strong id="total-aguardando-dashboard">0</strong>
             <span>Aguardando Aprovação</span>
         </div>
 

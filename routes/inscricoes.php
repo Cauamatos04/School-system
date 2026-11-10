@@ -105,6 +105,63 @@ if ($metodo === 'GET') {
                 exit;
             }
         }
+        // Validar data de nascimento
+$dataNascimento = $dados['data_nascimento'];
+
+if (
+    !is_string($dataNascimento) ||
+    !preg_match('/^\d{4}-\d{2}-\d{2}$/', $dataNascimento)
+) {
+    http_response_code(400);
+
+    echo json_encode(
+        ['erro' => 'Data de nascimento inválida'],
+        JSON_UNESCAPED_UNICODE
+    );
+
+    exit;
+}
+
+$data = DateTimeImmutable::createFromFormat('!Y-m-d', $dataNascimento);
+$errosData = DateTimeImmutable::getLastErrors();
+
+if (
+    !$data ||
+    ($errosData !== false && (
+        $errosData['warning_count'] > 0 ||
+        $errosData['error_count'] > 0
+    )) ||
+    $data->format('Y-m-d') !== $dataNascimento
+) {
+    http_response_code(400);
+
+    echo json_encode(
+        ['erro' => 'Data de nascimento inválida'],
+        JSON_UNESCAPED_UNICODE
+    );
+
+    exit;
+}
+
+// Calcular idade considerando o horário de Campina Grande
+$hoje = new DateTimeImmutable(
+    'today',
+    new DateTimeZone('America/Fortaleza')
+);
+
+$idadeMinima = $hoje->modify('-6 years');
+$idadeMaxima = $hoje->modify('-18 years');
+
+if ($data > $idadeMinima || $data <= $idadeMaxima) {
+    http_response_code(400);
+
+    echo json_encode(
+        ['erro' => 'O aluno deve ter entre 6 e 17 anos'],
+        JSON_UNESCAPED_UNICODE
+    );
+
+    exit;
+}
 
         if (
             !filter_var($dados['id_modalidade'], FILTER_VALIDATE_INT) ||
@@ -139,19 +196,19 @@ if ($metodo === 'GET') {
             }
 
         } catch (PDOException $e) {
-            if ($e->getCode() === '23000') {
-                http_response_code(409);
+                if ($e->getCode() === '23505') {
+        http_response_code(409);
 
-                $resposta = [
-                    'erro' => 'Matrícula já cadastrada ou dados relacionados inválidos'
-                ];
-            } else {
-                http_response_code(500);
+        $resposta = [
+            'erro' => 'Matrícula já cadastrada'
+        ];
+    } else {
+        http_response_code(500);
 
-                $resposta = [
-                    'erro' => 'Erro ao realizar inscrição'
-                ];
-            }
+        $resposta = [
+            'erro' => 'Erro ao realizar inscrição'
+        ];
+    }
 
         } catch (Throwable $e) {
             http_response_code(500);

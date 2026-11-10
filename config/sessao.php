@@ -92,4 +92,14 @@ ini_set('session.use_only_cookies', '1');
 ini_set('session.cookie_httponly', '1');
 ini_set('session.cookie_samesite', 'Lax');
 
+$https = (
+    !empty($_SERVER['HTTPS']) &&
+    $_SERVER['HTTPS'] !== 'off'
+) || (
+    isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+    strtolower(explode(',', $_SERVER['HTTP_X_FORWARDED_PROTO'])[0]) === 'https'
+);
+
+ini_set('session.cookie_secure', $https ? '1' : '0');
+
 session_start();
