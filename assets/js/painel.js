@@ -12,52 +12,39 @@ const botaoSair = document.getElementById("btn-sair");
 // ==============================
 
 function definirSidebar(aberta) {
-
     sidebar.classList.toggle("aberta", aberta);
     document.body.classList.toggle("sidebar-aberta", aberta);
 
     menuToggle.setAttribute("aria-expanded", aberta);
     menuToggle.setAttribute("aria-label", aberta ? "Fechar menu" : "Abrir menu");
-
 }
 
 menuToggle.addEventListener("click", (evento) => {
-
     evento.stopPropagation();
     definirSidebar(!sidebar.classList.contains("aberta"));
-
 });
 
 document.addEventListener("click", (evento) => {
-
     if (sidebar.classList.contains("aberta") && !sidebar.contains(evento.target)) {
         definirSidebar(false);
     }
-
 });
 
 document.addEventListener("keydown", (evento) => {
-
     if (evento.key === "Escape") {
         definirSidebar(false);
         fecharEdicaoModalidade();
     }
-
 });
 
 const linksSidebar = document.querySelectorAll(".sidebar-nav .sidebar-link");
 
 linksSidebar.forEach(link => {
-
     link.addEventListener("click", () => {
-
         linksSidebar.forEach(item => item.classList.remove("ativo"));
         link.classList.add("ativo");
-
         definirSidebar(false);
-
     });
-
 });
 
 // ==============================
@@ -65,7 +52,6 @@ linksSidebar.forEach(link => {
 // ==============================
 
 botaoSair.addEventListener("click", async (evento) => {
-
     evento.preventDefault();
 
     try {
@@ -74,11 +60,10 @@ botaoSair.addEventListener("click", async (evento) => {
             credentials: "same-origin"
         });
     } catch (erro) {
-        // Mesmo com erro de rede, retorna à página inicial.
+        // Retorna à página inicial mesmo com erro de rede.
     }
 
     window.location.href = "index.php";
-
 });
 
 // ==============================
@@ -100,29 +85,27 @@ let modalidadeSelecionada = null;
 // ==============================
 
 async function carregarModalidades() {
-
     try {
-
         const resposta = await fetch("routes/api.php/modalidades", {
             credentials: "same-origin"
         });
 
         const modalidades = await resposta.json();
-        const totalModalidadesDashboard = document.getElementById('total-modalidades-dashboard');
-
-if (totalModalidadesDashboard) {
-    totalModalidadesDashboard.textContent = modalidades.length;
-}
 
         if (!resposta.ok || !Array.isArray(modalidades)) {
             throw new Error("Não foi possível carregar as modalidades.");
+        }
+
+        const totalModalidadesDashboard = document.getElementById("total-modalidades-dashboard");
+
+        if (totalModalidadesDashboard) {
+            totalModalidadesDashboard.textContent = modalidades.length;
         }
 
         listaModalidades.innerHTML = "";
         totalModalidades.textContent = modalidades.length;
 
         if (modalidades.length === 0) {
-
             modalidadeSelecionada = null;
 
             tituloModalidade.textContent = "Nenhuma modalidade cadastrada";
@@ -144,14 +127,10 @@ if (totalModalidadesDashboard) {
         }
 
         modalidades.forEach(modalidade => {
-
             const linha = document.createElement("div");
             linha.className = "modalidade-linha";
 
-            // Botão de seleção
-
             const botao = document.createElement("button");
-
             botao.type = "button";
             botao.className = "modalidade-item";
             botao.textContent = modalidade.nome;
@@ -161,15 +140,10 @@ if (totalModalidadesDashboard) {
                 selecionarModalidade(modalidade, botao);
             });
 
-            // Área de ações
-
             const acoes = document.createElement("div");
             acoes.className = "acoes-modalidade";
 
-            // Botão editar
-
             const editar = document.createElement("button");
-
             editar.type = "button";
             editar.className = "acao-modalidade acao-editar";
             editar.title = "Editar modalidade";
@@ -180,10 +154,7 @@ if (totalModalidadesDashboard) {
                 abrirEdicaoModalidade(modalidade);
             });
 
-            // Botão excluir
-
             const excluir = document.createElement("button");
-
             excluir.type = "button";
             excluir.className = "acao-modalidade acao-excluir";
             excluir.title = "Excluir modalidade";
@@ -201,10 +172,7 @@ if (totalModalidadesDashboard) {
             linha.appendChild(acoes);
 
             listaModalidades.appendChild(linha);
-
         });
-
-        // Selecionar automaticamente a primeira modalidade
 
         const primeiroBotao = listaModalidades.querySelector(".modalidade-item");
 
@@ -213,7 +181,6 @@ if (totalModalidadesDashboard) {
         }
 
     } catch (erro) {
-
         listaModalidades.innerHTML = `
             <p class="estado-vazio estado-erro">
                 Erro ao carregar modalidades.
@@ -221,9 +188,7 @@ if (totalModalidadesDashboard) {
         `;
 
         console.error(erro);
-
     }
-
 }
 
 // ==============================
@@ -231,7 +196,6 @@ if (totalModalidadesDashboard) {
 // ==============================
 
 function selecionarModalidade(modalidade, botao) {
-
     modalidadeSelecionada = modalidade.id;
 
     document.querySelectorAll(".modalidade-item").forEach(item => {
@@ -243,7 +207,6 @@ function selecionarModalidade(modalidade, botao) {
     tituloModalidade.textContent = modalidade.nome;
 
     carregarAlunos(modalidade.id);
-
 }
 
 // ==============================
@@ -251,7 +214,6 @@ function selecionarModalidade(modalidade, botao) {
 // ==============================
 
 async function carregarAlunos(idModalidade) {
-
     listaAlunos.innerHTML = `
         <p class="estado-carregamento">
             Carregando alunos...
@@ -261,7 +223,6 @@ async function carregarAlunos(idModalidade) {
     totalAlunos.textContent = "0 alunos";
 
     try {
-
         const resposta = await fetch(
             `routes/inscricoes.php/modalidade/${idModalidade}/aprovados`,
             {
@@ -275,8 +236,6 @@ async function carregarAlunos(idModalidade) {
             throw new Error("Não foi possível carregar os alunos.");
         }
 
-        // Evita atualizar a lista de outra modalidade selecionada.
-
         if (String(modalidadeSelecionada) !== String(idModalidade)) {
             return;
         }
@@ -287,7 +246,6 @@ async function carregarAlunos(idModalidade) {
             `${alunos.length} ${alunos.length === 1 ? "aluno" : "alunos"}`;
 
         if (alunos.length === 0) {
-
             listaAlunos.innerHTML = `
                 <div class="estado-vazio">
                     Nenhum aluno com inscrição aprovada nesta modalidade.
@@ -298,7 +256,6 @@ async function carregarAlunos(idModalidade) {
         }
 
         alunos.forEach(aluno => {
-
             const item = document.createElement("article");
             item.className = "aluno-item";
 
@@ -310,8 +267,7 @@ async function carregarAlunos(idModalidade) {
 
             const responsavel = document.createElement("p");
             responsavel.className = "aluno-responsavel";
-            responsavel.textContent =
-                `Responsável: ${aluno.nome_responsavel}`;
+            responsavel.textContent = `Responsável: ${aluno.nome_responsavel}`;
 
             informacoes.appendChild(nome);
             informacoes.appendChild(responsavel);
@@ -324,11 +280,9 @@ async function carregarAlunos(idModalidade) {
             item.appendChild(matricula);
 
             listaAlunos.appendChild(item);
-
         });
 
     } catch (erro) {
-
         listaAlunos.innerHTML = `
             <p class="estado-vazio estado-erro">
                 Erro ao carregar os alunos desta modalidade.
@@ -336,9 +290,7 @@ async function carregarAlunos(idModalidade) {
         `;
 
         console.error(erro);
-
     }
-
 }
 
 // ==============================
@@ -358,12 +310,12 @@ const erroEdicao = document.getElementById("erro-edicao-modalidade");
 const botaoSalvar = formEdicao.querySelector(".botao-salvar");
 
 let modalidadeEmEdicao = null;
+
 // ==============================
-// SELECIONAR ÍCONE DA MODALIDADE
+// SELECIONAR ÍCONE
 // ==============================
 
 function selecionarIcone(icone) {
-
     const iconeValido = document.querySelector(
         `.opcao-icone[data-icone="${icone}"]`
     );
@@ -373,27 +325,18 @@ function selecionarIcone(icone) {
     campoIcone.value = iconeSelecionado;
 
     opcoesIcone.forEach(opcao => {
-
         const selecionado = opcao.dataset.icone === iconeSelecionado;
 
         opcao.classList.toggle("selecionado", selecionado);
         opcao.setAttribute("aria-pressed", selecionado);
-
     });
-
 }
 
-// Eventos de clique nos ícones
-
 opcoesIcone.forEach(opcao => {
-
     opcao.addEventListener("click", () => {
         selecionarIcone(opcao.dataset.icone);
     });
-
 });
-
-// Seleção inicial
 
 selecionarIcone("futebol");
 
@@ -402,7 +345,6 @@ selecionarIcone("futebol");
 // ==============================
 
 function abrirEdicaoModalidade(modalidade) {
-
     modalidadeEmEdicao = modalidade.id;
 
     document.getElementById("titulo-modal-modalidade").textContent =
@@ -412,6 +354,7 @@ function abrirEdicaoModalidade(modalidade) {
 
     campoNome.value = modalidade.nome;
     campoDescricao.value = modalidade.descricao || "";
+
     selecionarIcone(modalidade.icone || "outros");
 
     erroEdicao.textContent = "";
@@ -420,7 +363,6 @@ function abrirEdicaoModalidade(modalidade) {
     modalEdicao.setAttribute("aria-hidden", "false");
 
     campoNome.focus();
-
 }
 
 // ==============================
@@ -439,6 +381,7 @@ document.getElementById("btn-nova-modalidade")
 
         campoNome.value = "";
         campoDescricao.value = "";
+
         selecionarIcone("futebol");
 
         erroEdicao.textContent = "";
@@ -447,7 +390,6 @@ document.getElementById("btn-nova-modalidade")
         modalEdicao.setAttribute("aria-hidden", "false");
 
         campoNome.focus();
-
     });
 
 // ==============================
@@ -455,7 +397,6 @@ document.getElementById("btn-nova-modalidade")
 // ==============================
 
 function fecharEdicaoModalidade() {
-
     if (!modalEdicao) return;
 
     modalEdicao.classList.remove("aberto");
@@ -466,7 +407,6 @@ function fecharEdicaoModalidade() {
     botaoSalvar.textContent = "Salvar alterações";
 
     erroEdicao.textContent = "";
-
 }
 
 document.getElementById("fechar-modal-edicao")
@@ -476,11 +416,9 @@ document.getElementById("cancelar-edicao")
     .addEventListener("click", fecharEdicaoModalidade);
 
 modalEdicao.addEventListener("click", (evento) => {
-
     if (evento.target === modalEdicao) {
         fecharEdicaoModalidade();
     }
-
 });
 
 // ==============================
@@ -488,7 +426,6 @@ modalEdicao.addEventListener("click", (evento) => {
 // ==============================
 
 formEdicao.addEventListener("submit", async (evento) => {
-
     evento.preventDefault();
 
     const nome = campoNome.value.trim();
@@ -500,8 +437,6 @@ formEdicao.addEventListener("submit", async (evento) => {
         return;
     }
 
-    // Guardamos essa informação antes de qualquer alteração no modal.
-
     const editando = modalidadeEmEdicao !== null;
     const idModalidade = modalidadeEmEdicao;
 
@@ -511,13 +446,11 @@ formEdicao.addEventListener("submit", async (evento) => {
     erroEdicao.textContent = "";
 
     try {
-
         const url = editando
             ? `routes/api.php/modalidades/${idModalidade}`
             : "routes/api.php/modalidades";
 
         const resposta = await fetch(url, {
-
             method: editando ? "PUT" : "POST",
 
             headers: {
@@ -527,11 +460,10 @@ formEdicao.addEventListener("submit", async (evento) => {
             credentials: "same-origin",
 
             body: JSON.stringify({
-            nome: nome,
-            descricao: descricao,
-            icone: icone
-        })
-
+                nome: nome,
+                descricao: descricao,
+                icone: icone
+            })
         });
 
         const resultado = await resposta.json();
@@ -547,20 +479,16 @@ formEdicao.addEventListener("submit", async (evento) => {
         await carregarModalidades();
 
     } catch (erro) {
-
         erroEdicao.textContent = erro.message;
         console.error(erro);
 
     } finally {
-
         botaoSalvar.disabled = false;
 
         botaoSalvar.textContent = editando
             ? "Salvar alterações"
             : "Cadastrar modalidade";
-
     }
-
 });
 
 // ==============================
@@ -568,23 +496,15 @@ formEdicao.addEventListener("submit", async (evento) => {
 // ==============================
 
 async function excluirModalidade(modalidade) {
-
     const confirmar = confirm(
-
         `Deseja realmente excluir a modalidade "${modalidade.nome}"?\n\n` +
-
         "Atenção: as inscrições vinculadas a esta modalidade também serão excluídas.\n\n" +
-
         "Essa ação não poderá ser desfeita."
-
     );
 
-    if (!confirmar) {
-        return;
-    }
+    if (!confirmar) return;
 
     try {
-
         const resposta = await fetch(
             `routes/api.php/modalidades/${modalidade.id}`,
             {
@@ -604,12 +524,9 @@ async function excluirModalidade(modalidade) {
         await carregarModalidades();
 
     } catch (erro) {
-
         alert(erro.message);
         console.error(erro);
-
     }
-
 }
 
 // ==============================
@@ -632,10 +549,7 @@ const totalInscricoes = document.getElementById("total-inscricoes");
 // ==============================
 
 function formatarDataInscricao(data) {
-
-    if (!data) {
-        return "Não informada";
-    }
+    if (!data) return "Não informada";
 
     const dataFormatada = new Date(data.replace(" ", "T"));
 
@@ -648,7 +562,6 @@ function formatarDataInscricao(data) {
         month: "2-digit",
         year: "numeric"
     });
-
 }
 
 // ==============================
@@ -656,7 +569,6 @@ function formatarDataInscricao(data) {
 // ==============================
 
 async function carregarInscricoes() {
-
     if (!listaInscricoes) return;
 
     listaInscricoes.innerHTML = `
@@ -668,35 +580,45 @@ async function carregarInscricoes() {
     `;
 
     try {
-
         const resposta = await fetch("routes/inscricoes.php/inscricoes", {
             credentials: "same-origin"
         });
 
         const inscricoes = await resposta.json();
-        const totalInscricoesDashboard = document.getElementById('total-inscricoes-dashboard');
-const totalAprovadasDashboard = document.getElementById('total-aprovadas-dashboard');
-const totalPendentesDashboard = document.getElementById('total-pendentes-dashboard');
-
-const aprovadas = inscricoes.filter(inscricao => inscricao.status === 'aprovada').length;
-const pendentes = inscricoes.filter(inscricao => inscricao.status === 'pendente').length;
-
-if (totalInscricoesDashboard) {
-    totalInscricoesDashboard.textContent = inscricoes.length;
-}
-
-if (totalAprovadasDashboard) {
-    totalAprovadasDashboard.textContent = aprovadas;
-}
-
-if (totalPendentesDashboard) {
-    totalPendentesDashboard.textContent = pendentes;
-}
 
         if (!resposta.ok || !Array.isArray(inscricoes)) {
             throw new Error(
                 inscricoes.erro || "Não foi possível carregar as inscrições."
             );
+        }
+
+        const totalInscricoesDashboard =
+            document.getElementById("total-inscricoes-dashboard");
+
+        const totalAprovadasDashboard =
+            document.getElementById("total-aprovadas-dashboard");
+
+        const totalPendentesDashboard =
+            document.getElementById("total-pendentes-dashboard");
+
+        const aprovadas = inscricoes.filter(
+            inscricao => inscricao.status === "aprovada"
+        ).length;
+
+        const pendentes = inscricoes.filter(
+            inscricao => inscricao.status === "pendente"
+        ).length;
+
+        if (totalInscricoesDashboard) {
+            totalInscricoesDashboard.textContent = inscricoes.length;
+        }
+
+        if (totalAprovadasDashboard) {
+            totalAprovadasDashboard.textContent = aprovadas;
+        }
+
+        if (totalPendentesDashboard) {
+            totalPendentesDashboard.textContent = pendentes;
         }
 
         listaInscricoes.innerHTML = "";
@@ -705,7 +627,6 @@ if (totalPendentesDashboard) {
             `${inscricoes.length} ${inscricoes.length === 1 ? "inscrição" : "inscrições"}`;
 
         if (inscricoes.length === 0) {
-
             listaInscricoes.innerHTML = `
                 <tr>
                     <td colspan="5" class="estado-vazio">
@@ -718,29 +639,28 @@ if (totalPendentesDashboard) {
         }
 
         inscricoes.forEach(inscricao => {
-
             const linha = document.createElement("tr");
 
-            // Nome do aluno
-
+            // Aluno
             const colunaAluno = document.createElement("td");
             colunaAluno.className = "inscricao-aluno";
+            colunaAluno.dataset.label = "Aluno";
             colunaAluno.textContent = inscricao.nome_aluno;
 
             // Modalidade
-
             const colunaModalidade = document.createElement("td");
+            colunaModalidade.dataset.label = "Modalidade";
             colunaModalidade.textContent = inscricao.nome_modalidade;
 
-            // Data da inscrição
-
+            // Data
             const colunaData = document.createElement("td");
             colunaData.className = "inscricao-data";
+            colunaData.dataset.label = "Data da inscrição";
             colunaData.textContent = formatarDataInscricao(inscricao.criada_em);
 
             // Situação
-
             const colunaStatus = document.createElement("td");
+            colunaStatus.dataset.label = "Situação";
 
             const status = document.createElement("span");
 
@@ -755,18 +675,18 @@ if (totalPendentesDashboard) {
             colunaStatus.appendChild(status);
 
             // Ação
-
             const colunaAcao = document.createElement("td");
             colunaAcao.className = "inscricao-acao";
+            colunaAcao.dataset.label = "Ação";
 
             if (inscricao.status === "pendente") {
-
                 const botaoAprovar = document.createElement("button");
 
                 botaoAprovar.type = "button";
                 botaoAprovar.className = "botao-aprovar";
                 botaoAprovar.innerHTML = "&#10003;";
                 botaoAprovar.title = "Aprovar inscrição";
+
                 botaoAprovar.setAttribute(
                     "aria-label",
                     `Aprovar inscrição de ${inscricao.nome_aluno}`
@@ -779,7 +699,6 @@ if (totalPendentesDashboard) {
                 colunaAcao.appendChild(botaoAprovar);
 
             } else {
-
                 const aprovado = document.createElement("span");
 
                 aprovado.className = "inscricao-aprovada";
@@ -787,7 +706,6 @@ if (totalPendentesDashboard) {
                 aprovado.title = "Inscrição aprovada";
 
                 colunaAcao.appendChild(aprovado);
-
             }
 
             linha.appendChild(colunaAluno);
@@ -797,11 +715,9 @@ if (totalPendentesDashboard) {
             linha.appendChild(colunaAcao);
 
             listaInscricoes.appendChild(linha);
-
         });
 
     } catch (erro) {
-
         listaInscricoes.innerHTML = `
             <tr>
                 <td colspan="5" class="estado-erro">
@@ -811,9 +727,7 @@ if (totalPendentesDashboard) {
         `;
 
         console.error(erro);
-
     }
-
 }
 
 // ==============================
@@ -821,14 +735,11 @@ if (totalPendentesDashboard) {
 // ==============================
 
 async function aprovarInscricao(id, botao) {
-
     botao.disabled = true;
     botao.textContent = "...";
 
     try {
-
         const resposta = await fetch(`routes/inscricoes.php/${id}`, {
-
             method: "PUT",
 
             headers: {
@@ -840,7 +751,6 @@ async function aprovarInscricao(id, botao) {
             body: JSON.stringify({
                 status: "aprovada"
             })
-
         });
 
         const resultado = await resposta.json();
@@ -853,23 +763,18 @@ async function aprovarInscricao(id, botao) {
 
         await carregarInscricoes();
 
-        // Atualiza também os alunos da modalidade selecionada.
-
         if (modalidadeSelecionada !== null) {
             await carregarAlunos(modalidadeSelecionada);
         }
 
     } catch (erro) {
-
         alert(erro.message);
 
         botao.disabled = false;
         botao.innerHTML = "&#10003;";
 
         console.error(erro);
-
     }
-
 }
 
 // ==============================

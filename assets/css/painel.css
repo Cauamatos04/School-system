@@ -1085,3 +1085,567 @@ a {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
+
+/* =========================================
+   REFINAMENTO RESPONSIVO DO PAINEL
+   Desktop preservado
+========================================= */
+
+@media (max-width: 900px) {
+
+    .painel-topo {
+        padding: 22px 22px 18px;
+    }
+
+    .painel-titulo {
+        padding-left: 14px;
+    }
+
+    .painel-titulo h1 {
+        font-size: 27px;
+    }
+
+    .painel-main {
+        padding: 0 18px 32px;
+        gap: 16px;
+    }
+
+    .estatisticas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .estatistica-card {
+        min-height: 88px;
+        padding: 14px;
+        gap: 12px;
+    }
+
+    .estatistica-icone {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+    }
+
+    .estatistica-icone .ic {
+        width: 25px;
+        height: 25px;
+    }
+
+    .estatistica-info strong {
+        font-size: 25px;
+    }
+
+    .gestao-conteudo {
+        grid-template-columns: 1fr;
+    }
+
+    .tabela-inscricoes-container {
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 600px) {
+
+    html {
+        scroll-padding-top: 12px;
+    }
+
+    body.pagina-painel {
+        overflow-x: hidden;
+    }
+
+    .painel {
+        width: 100%;
+        min-height: 100vh;
+    }
+
+    /* MENU LATERAL */
+
+    .sidebar {
+        width: min(280px, 82vw);
+        padding: 28px 18px;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+    }
+
+    .sidebar-logo img {
+        width: 145px;
+    }
+
+    .sidebar-linha {
+        margin: 23px 10px;
+    }
+
+    .sidebar-link {
+        min-height: 48px;
+        padding: 13px 14px;
+        font-size: 14px;
+    }
+
+    /* CABEÇALHO */
+
+    .painel-topo {
+        min-height: 82px;
+        padding: 17px 16px;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .painel-menu-toggle {
+        width: 42px;
+        height: 42px;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        padding: 8px;
+        border-radius: 9px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+    }
+
+    .painel-menu-toggle:active {
+        background: #edf3fa;
+    }
+
+    .painel-menu-toggle span {
+        width: 21px;
+        height: 2px;
+    }
+
+    .painel-titulo {
+        min-width: 0;
+        padding-left: 11px;
+        border-left-width: 3px;
+    }
+
+    .painel-titulo h1 {
+        font-size: 21px;
+        letter-spacing: -0.5px;
+    }
+
+    .painel-titulo p {
+        margin-top: 4px;
+        font-size: 11px;
+        line-height: 1.4;
+    }
+
+    .painel-area {
+        display: none;
+    }
+
+    /* CONTEÚDO */
+
+    .painel-main {
+        width: 100%;
+        padding: 0 14px 28px;
+        gap: 16px;
+    }
+
+    /* INDICADORES */
+
+    .estatisticas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .estatistica-card {
+        min-height: 82px;
+        padding: 12px 10px;
+        gap: 9px;
+        border-radius: 11px;
+    }
+
+    .estatistica-icone {
+        width: 39px;
+        height: 39px;
+        border-radius: 10px;
+    }
+
+    .estatistica-icone .ic {
+        width: 21px;
+        height: 21px;
+    }
+
+    .estatistica-info {
+        gap: 4px;
+    }
+
+    .estatistica-info strong {
+        font-size: 22px;
+    }
+
+    .estatistica-info span {
+        font-size: 10px;
+        line-height: 1.3;
+    }
+
+    /* SEÇÕES */
+
+    .gestao-modalidades {
+        gap: 14px;
+        margin-top: 5px;
+    }
+
+    .secao-cabecalho {
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .secao-identificador {
+        font-size: 9px;
+        margin-bottom: 5px;
+    }
+
+    .secao-cabecalho h2 {
+        font-size: 18px;
+        line-height: 1.3;
+    }
+
+    .secao-cabecalho p {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+    .botao-nova-modalidade {
+        flex-shrink: 0;
+        gap: 5px;
+        padding: 10px 11px;
+        font-size: 10px;
+        white-space: nowrap;
+    }
+
+    .botao-nova-modalidade span {
+        font-size: 16px;
+    }
+
+    /* MODALIDADES E ALUNOS */
+
+    .gestao-conteudo {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .modalidades-painel,
+    .alunos-painel {
+        width: 100%;
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .painel-subtitulo {
+        padding-bottom: 13px;
+    }
+
+    .painel-subtitulo h3 {
+        font-size: 13px;
+    }
+
+    .lista-modalidades {
+        gap: 5px;
+        padding-top: 10px;
+    }
+
+    .modalidade-linha {
+        gap: 4px;
+    }
+
+    .modalidade-item {
+        min-height: 43px;
+        padding: 11px 9px;
+        font-size: 12px;
+    }
+
+    .acoes-modalidade {
+        gap: 1px;
+    }
+
+    .acao-modalidade {
+        width: 34px;
+        height: 36px;
+        font-size: 15px;
+    }
+
+    .lista-alunos {
+        min-height: 100px;
+    }
+
+    .aluno-item {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 7px;
+        padding: 13px 2px;
+    }
+
+    .aluno-nome {
+        font-size: 12px;
+    }
+
+    .aluno-responsavel {
+        font-size: 10px;
+    }
+
+    .aluno-matricula {
+        font-size: 10px;
+        text-align: left;
+    }
+
+    /* INSCRIÇÕES */
+
+    .gestao-inscricoes {
+        padding: 16px 12px;
+        margin-bottom: 10px;
+        border-radius: 12px;
+    }
+
+    .gestao-inscricoes .secao-cabecalho {
+        margin-bottom: 15px;
+    }
+
+    .gestao-inscricoes .secao-cabecalho h2 {
+        font-size: 18px;
+    }
+
+    .gestao-inscricoes .secao-cabecalho p {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+    .inscricoes-painel {
+        border-radius: 10px;
+    }
+
+    .inscricoes-painel .painel-subtitulo {
+        padding: 14px;
+    }
+
+    .inscricoes-painel .painel-subtitulo h3 {
+        font-size: 13px;
+    }
+
+    .descricao-inscricoes {
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    #total-inscricoes {
+        padding: 6px 9px;
+        font-size: 10px;
+    }
+
+    /* TABELA EM FORMATO DE CARDS */
+
+    .tabela-inscricoes-container {
+        overflow: visible;
+        padding: 10px;
+    }
+
+    .tabela-inscricoes {
+        display: block;
+        width: 100%;
+        white-space: normal;
+    }
+
+    .tabela-inscricoes thead {
+        display: none;
+    }
+
+    .tabela-inscricoes tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .tabela-inscricoes tbody tr {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 0;
+        padding: 8px 12px;
+        border: 1px solid #e8edf3;
+        border-radius: 10px;
+        background: #ffffff;
+    }
+
+    .tabela-inscricoes tbody tr:hover {
+        background: #ffffff;
+    }
+
+    .tabela-inscricoes td {
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 9px 0;
+        border-bottom: 1px solid #f0f2f5;
+        font-size: 11px;
+        text-align: right;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .tabela-inscricoes td::before {
+        content: attr(data-label);
+        flex-shrink: 0;
+        color: #8290a2;
+        font-size: 9px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        text-align: left;
+    }
+
+    .tabela-inscricoes td.inscricao-aluno {
+        color: #09294f;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .tabela-inscricoes td:last-child {
+        border-bottom: none;
+    }
+
+    .tabela-inscricoes .inscricao-acao {
+        width: auto;
+        justify-content: space-between;
+    }
+
+    .botao-aprovar,
+    .inscricao-aprovada {
+        width: 34px;
+        height: 34px;
+        flex-shrink: 0;
+    }
+
+    .status-inscricao {
+        font-size: 9px;
+        padding: 5px 9px;
+    }
+
+    /* ESTADOS */
+
+    .estado-vazio,
+    .estado-carregamento,
+    .estado-erro {
+        font-size: 11px;
+        line-height: 1.6;
+    }
+
+    /* MODAL */
+
+    .modal-edicao {
+        align-items: center;
+        padding: 12px;
+        overflow-y: auto;
+    }
+
+    .modal-edicao-conteudo {
+        width: 100%;
+        max-width: 460px;
+        max-height: calc(100dvh - 24px);
+        overflow-y: auto;
+        padding: 20px 16px;
+        border-radius: 12px;
+    }
+
+    .modal-edicao-topo {
+        margin-bottom: 19px;
+    }
+
+    .modal-edicao-topo h3 {
+        font-size: 17px;
+    }
+
+    .campo-modalidade {
+        gap: 7px;
+        margin-bottom: 15px;
+    }
+
+    .campo-modalidade label {
+        font-size: 11px;
+    }
+
+    .campo-modalidade input,
+    .campo-modalidade textarea {
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    .descricao-selecao-icone {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+    .grade-icones {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 7px;
+    }
+
+    .opcao-icone {
+        min-height: 75px;
+        padding: 9px 4px;
+        gap: 7px;
+    }
+
+    .opcao-icone svg {
+        width: 23px;
+        height: 23px;
+    }
+
+    .opcao-icone span {
+        font-size: 10px;
+    }
+
+    .modal-edicao-acoes {
+        gap: 8px;
+    }
+
+    .botao-cancelar,
+    .botao-salvar {
+        min-height: 42px;
+        padding: 10px 13px;
+        font-size: 11px;
+    }
+}
+
+/* CELULARES ESTREITOS */
+
+@media (max-width: 360px) {
+
+    .painel-topo {
+        padding-right: 11px;
+        padding-left: 11px;
+    }
+
+    .painel-titulo h1 {
+        font-size: 18px;
+    }
+
+    .painel-titulo p {
+        font-size: 10px;
+    }
+
+    .painel-main {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .estatistica-card {
+        padding: 10px 8px;
+        gap: 7px;
+    }
+
+    .estatistica-icone {
+        width: 34px;
+        height: 34px;
+    }
+
+    .estatistica-info strong {
+        font-size: 19px;
+    }
+
+    .botao-nova-modalidade {
+        padding: 9px;
+        font-size: 9px;
+    }
+}
